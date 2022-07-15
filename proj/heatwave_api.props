@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--
+    Intermediate and Output Directories
+  -->
+  <PropertyGroup Label="Configuration" Condition="('$(VisualStudioVersion)'=='' or '$(VisualStudioVersion)'=='11.0') and ('$(Platform)'=='Win32' or '$(Platform)'=='x64')">
+    <IntDir>$(SCE_PHYRE)\Lib\Intermediate\vs2012\External\HeatWave\$(Configuration)_$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="('$(VisualStudioVersion)'=='' or '$(VisualStudioVersion)'=='11.0') and '$(Platform)'=='Win32'">
+    <OutDir>$(SCE_PHYRE)\Lib\Win32\vs2012\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="('$(VisualStudioVersion)'=='' or '$(VisualStudioVersion)'=='11.0') and '$(Platform)'=='x64'">
+    <OutDir>$(SCE_PHYRE)\Lib\Win64\vs2012\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='12.0' and ('$(Platform)'=='Win32' or '$(Platform)'=='x64')">
+    <IntDir>$(SCE_PHYRE)\Lib\Intermediate\vs2013\External\HeatWave\$(Configuration)_$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='12.0' and '$(Platform)'=='Win32'">
+    <OutDir>$(SCE_PHYRE)\Lib\Win32\vs2013\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='12.0' and '$(Platform)'=='x64'">
+    <OutDir>$(SCE_PHYRE)\Lib\Win64\vs2013\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='14.0' and ('$(Platform)'=='Win32' or '$(Platform)'=='x64')">
+    <IntDir>$(SCE_PHYRE)\Lib\Intermediate\vs2015\External\HeatWave\$(Configuration)_$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='14.0' and '$(Platform)'=='Win32'">
+    <OutDir>$(SCE_PHYRE)\Lib\Win32\vs2015\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='14.0' and '$(Platform)'=='x64'">
+    <OutDir>$(SCE_PHYRE)\Lib\Win64\vs2015\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='15.0' and ('$(Platform)'=='Win32' or '$(Platform)'=='x64')">
+    <IntDir>$(SCE_PHYRE)\Lib\Intermediate\vs2017\External\HeatWave\$(Configuration)_$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='15.0' and '$(Platform)'=='Win32'">
+    <OutDir>$(SCE_PHYRE)\Lib\Win32\vs2017\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='15.0' and '$(Platform)'=='x64'">
+    <OutDir>$(SCE_PHYRE)\Lib\Win64\vs2017\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Platform)'=='PS3' or '$(Platform)'=='PSVita' or '$(Platform)'=='ORBIS'">
+    <IntDir>$(SCE_PHYRE)\Lib\Intermediate\External\HeatWave\$(Configuration)_$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Platform)'=='ORBIS'">
+    <OutDir>$(SCE_PHYRE)\Lib\Orbis\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Platform)'=='PSVita'">
+    <OutDir>$(SCE_PHYRE)\Lib\PSP2\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Platform)'=='PS3'">
+    <OutDir>$(SCE_PHYRE)\Lib\PS3\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="('$(VisualStudioVersion)'=='' or '$(VisualStudioVersion)'=='11.0') and ('$(Platform)'=='Win32' or '$(Platform)'=='x64') and $(Configuration.Contains('Dynamic'))">
+    <OutDir>$(ProjectDir)..\lib\shared\$(Platform)\vs2012\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='12.0' and ('$(Platform)'=='Win32' or '$(Platform)'=='x64') and $(Configuration.Contains('Dynamic'))">
+    <OutDir>$(ProjectDir)..\lib\shared\$(Platform)\vs2013\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='14.0' and ('$(Platform)'=='Win32' or '$(Platform)'=='x64') and $(Configuration.Contains('Dynamic'))">
+    <OutDir>$(ProjectDir)..\lib\shared\$(Platform)\vs2015\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='15.0' and ('$(Platform)'=='Win32' or '$(Platform)'=='x64') and $(Configuration.Contains('Dynamic'))">
+    <OutDir>$(ProjectDir)..\lib\shared\$(Platform)\vs2017\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="('$(Platform)'=='ORBIS' or '$(Platform)'=='PSVita') and $(Configuration.Contains('Dynamic'))">
+    <OutDir>$(ProjectDir)..\lib\shared\$(Platform)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Platform)'=='PS3' and $(Configuration.Contains('Dynamic'))">
+    <OutDir>$(ProjectDir)..\lib\shared\$(Platform)GCC\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Platform)'=='PS3' and $(Configuration.Contains('SNC')) and $(Configuration.Contains('Dynamic'))">
+    <OutDir>$(ProjectDir)..\lib\shared\$(Platform)SNC\</OutDir>
+  </PropertyGroup>
+  
+  <ItemDefinitionGroup>								
+    <!--
+        Common to all platforms
+    -->
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\include;$(ProjectDir)..\include_internal</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PreprocessorDefinitions Condition="$(Configuration.EndsWith('Dynamic'))">SCE_HEATWAVE_DYNAMIC;SCE_HEATWAVE_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="$(Configuration.Contains('Debug'))">_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="$(Configuration.Contains('Release'))">NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>				
+      <GenerateDebugInformation Condition="$(Configuration.Contains('Debug'))">true</GenerateDebugInformation>
+    </ClCompile>
+    
+    <!--
+        Win32 & x64
+    -->
+    <ClCompile Condition="('$(Platform)'=='Win32' or '$(Platform)'=='x64')">
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(DXSDK_DIR)/Include/</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Platform)'=='Win32'">WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Platform)'=='x64'">WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <RuntimeLibrary Condition="$(Configuration.Contains('DebugDynamic'))">MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary Condition="$(Configuration.Contains('ReleaseDynamic'))">MultiThreadedDLL</RuntimeLibrary>
+      <Optimization Condition="$(Configuration.Contains('Debug'))">Disabled</Optimization>
+      <Optimization Condition="$(Configuration.Contains('Release'))">MaxSpeed</Optimization>
+      <FunctionLevelLinking Condition="$(Configuration.Contains('Release'))">true</FunctionLevelLinking>
+      <IntrinsicFunctions Condition="$(Configuration.Contains('Release'))">true</IntrinsicFunctions>
+      <ProgramDataBaseFileName>$(TargetDir)$(TargetFileName).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link Condition="('$(Platform)'=='Win32' or '$(Platform)'=='x64')">
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies Condition="$(Configuration.EndsWith('Dynamic'))">mfuuid.lib;mfreadwrite.lib;mfplat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EnableCOMDATFolding Condition="$(Configuration.Contains('Release'))">true</EnableCOMDATFolding>
+      <OptimizeReferences Condition="$(Configuration.Contains('Release'))">false</OptimizeReferences>
+    </Link>
+    
+    <!--
+        PS4
+    -->
+    <ClCompile Condition="('$(Platform)'=='ORBIS')">
+      <PreprocessorDefinitions>SCE_HEATWAVE_API_USE_AUDIO3D;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningsAsErrors>true</WarningsAsErrors>
+      <OptimizationLevel Condition="$(Configuration.Contains('Release'))">Level2</OptimizationLevel>
+    </ClCompile>
+    <Link Condition="('$(Platform)'=='ORBIS')">
+      <AdditionalDependencies>$(SCE_ORBIS_SDK_DIR)\target\lib\libSceNgs2_stub_weak.a;$(SCE_ORBIS_SDK_DIR)\target\lib\libSceAudioOut_stub_weak.a;$(SCE_ORBIS_SDK_DIR)\target\lib\libScePosix_stub_weak.a;$(SCE_ORBIS_SDK_DIR)\target\lib\libSceSysmodule_stub_weak.a;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    
+    <!--
+        PSVita
+    -->
+    <ClCompile Condition="('$(Platform)'=='PSVita')">
+      <TreatMessagesAsErrors>WarningsAsErrors</TreatMessagesAsErrors>
+      <OptimizationLevel Condition="$(Configuration.Contains('Release'))">Level2</OptimizationLevel>
+    </ClCompile>
+    <Link Condition="('$(Platform)'=='PSVita') and $(Configuration.Contains('Dynamic'))">
+      <AdditionalDependencies>$(SCE_PSP2_SDK_DIR)\target\lib\libSceSysmodule_stub.a;$(SCE_PSP2_SDK_DIR)\target\lib\libSceNgs_stub_weak.a;$(SCE_PSP2_SDK_DIR)\target\lib\libSceAudio_stub.a;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib Condition="('$(Platform)'=='PSVita') and $(Configuration.Contains('Dynamic')) == False">
+      <AdditionalDependencies>$(SCE_PSP2_SDK_DIR)\target\lib\libSceSysmodule_stub.a;$(SCE_PSP2_SDK_DIR)\target\lib\libSceNgs_stub_weak.a;$(SCE_PSP2_SDK_DIR)\target\lib\libSceAudio_stub.a;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+    
+    <!--
+        PS3
+    -->
+    <ClCompile Condition="('$(Platform)'=='PS3')">
+      <PreprocessorDefinitions>__CELL_ASSERT__;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <OptimizationLevel Condition="$(Configuration.Contains('Release'))">Level2</OptimizationLevel>
+      <TreatMessagesAsErrors>WarningsAsErrors</TreatMessagesAsErrors>
+      <Warnings Condition="$(Configuration.Contains('SNC')) == False">MoreWarnings</Warnings>
+      <Warnings Condition="$(Configuration.Contains('SNC'))">GenerateWarnings</Warnings>
+    </ClCompile>
+    
+    <Link Condition="('$(Platform)'=='PS3') and $(Configuration.Contains('Dynamic'))">
+      <AdditionalDependencies Condition="$(Configuration.Contains('SNC')) == False">-lgcc;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>-lsyscall;-llv2_stub;-lsupc++;-lc_stub;-lstdc++;-lm_stub;-ladec_stub;-lsysmodule_stub;-lmstreamThreadMP3;-laudio_stub;-lspurs_stub;-lsysutil_stub;-lfs_stub;-lpthread;$(SCE_PS3_ROOT)\target\spu\lib\pic\multistream\mstream_dsp_filter.ppu.o;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    
+    <Lib Condition="('$(Platform)'=='PS3') and $(Configuration.Contains('Dynamic')) == False">
+      <AdditionalDependencies>$(SCE_PS3_ROOT)\target\spu\lib\pic\multistream\mstream_dsp_filter.ppu.o;$(SCE_PS3_ROOT)\target\ppu\lib\libadec_stub.a;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+		
+</Project>

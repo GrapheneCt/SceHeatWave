@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugDynamic|ORBIS">
+      <Configuration>DebugDynamic</Configuration>
+      <Platform>ORBIS</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugDynamic|PS3">
+      <Configuration>DebugDynamic</Configuration>
+      <Platform>PS3</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugDynamic|PSVita">
+      <Configuration>DebugDynamic</Configuration>
+      <Platform>PSVita</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugDynamic|Win32">
+      <Configuration>DebugDynamic</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugDynamic|x64">
+      <Configuration>DebugDynamic</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ORBIS">
+      <Configuration>Debug</Configuration>
+      <Platform>ORBIS</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|PS3">
+      <Configuration>Debug</Configuration>
+      <Platform>PS3</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|PSVita">
+      <Configuration>Debug</Configuration>
+      <Platform>PSVita</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCDebugDynamic|PS3">
+      <Configuration>PS3SNCDebugDynamic</Configuration>
+      <Platform>PS3</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCDebug|PS3">
+      <Configuration>PS3SNCDebug</Configuration>
+      <Platform>PS3</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCReleaseDynamic|PS3">
+      <Configuration>PS3SNCReleaseDynamic</Configuration>
+      <Platform>PS3</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCRelease|PS3">
+      <Configuration>PS3SNCRelease</Configuration>
+      <Platform>PS3</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseDynamic|ORBIS">
+      <Configuration>ReleaseDynamic</Configuration>
+      <Platform>ORBIS</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseDynamic|PS3">
+      <Configuration>ReleaseDynamic</Configuration>
+      <Platform>PS3</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseDynamic|PSVita">
+      <Configuration>ReleaseDynamic</Configuration>
+      <Platform>PSVita</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseDynamic|Win32">
+      <Configuration>ReleaseDynamic</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseDynamic|x64">
+      <Configuration>ReleaseDynamic</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ORBIS">
+      <Configuration>Release</Configuration>
+      <Platform>ORBIS</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|PS3">
+      <Configuration>Release</Configuration>
+      <Platform>PS3</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|PSVita">
+      <Configuration>Release</Configuration>
+      <Platform>PSVita</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCDebugDynamic|ORBIS">
+      <Configuration>PS3SNCDebugDynamic</Configuration>
+      <Platform>ORBIS</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCDebugDynamic|PSVita">
+      <Configuration>PS3SNCDebugDynamic</Configuration>
+      <Platform>PSVita</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCDebugDynamic|Win32">
+      <Configuration>PS3SNCDebugDynamic</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCDebugDynamic|x64">
+      <Configuration>PS3SNCDebugDynamic</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCDebug|ORBIS">
+      <Configuration>PS3SNCDebug</Configuration>
+      <Platform>ORBIS</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCDebug|PSVita">
+      <Configuration>PS3SNCDebug</Configuration>
+      <Platform>PSVita</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCDebug|Win32">
+      <Configuration>PS3SNCDebug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCDebug|x64">
+      <Configuration>PS3SNCDebug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCReleaseDynamic|ORBIS">
+      <Configuration>PS3SNCReleaseDynamic</Configuration>
+      <Platform>ORBIS</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCReleaseDynamic|PSVita">
+      <Configuration>PS3SNCReleaseDynamic</Configuration>
+      <Platform>PSVita</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCReleaseDynamic|Win32">
+      <Configuration>PS3SNCReleaseDynamic</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCReleaseDynamic|x64">
+      <Configuration>PS3SNCReleaseDynamic</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCRelease|ORBIS">
+      <Configuration>PS3SNCRelease</Configuration>
+      <Platform>ORBIS</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCRelease|PSVita">
+      <Configuration>PS3SNCRelease</Configuration>
+      <Platform>PSVita</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCRelease|Win32">
+      <Configuration>PS3SNCRelease</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PS3SNCRelease|x64">
+      <Configuration>PS3SNCRelease</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\ATRAC9\heatwave_api_decoder_at9.cpp" />
+    <ClCompile Include="..\src\ATRAC9\heatwave_api_decoder_at9_psvita.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_adpcmcodec.cpp" />
+    <ClCompile Include="..\src\heatwave_api_at9codec.cpp" />
+    <ClCompile Include="..\src\heatwave_api_audiocodec.cpp" />
+    <ClCompile Include="..\src\heatwave_api_audiofilestream.cpp" />
+    <ClCompile Include="..\src\heatwave_api_audiostream.cpp" />
+    <ClCompile Include="..\src\heatwave_api_audiostream_pcm.cpp" />
+    <ClCompile Include="..\src\heatwave_api_datasource.cpp" />
+    <ClCompile Include="..\src\heatwave_api_file.cpp" />
+    <ClCompile Include="..\src\heatwave_api_handleconvert.cpp" />
+    <ClCompile Include="..\src\heatwave_api_memory.cpp" />
+    <ClCompile Include="..\src\heatwave_api_mp3codec.cpp" />
+    <ClCompile Include="..\src\heatwave_api_panner.cpp" />
+    <ClCompile Include="..\src\heatwave_api_platform.cpp" />
+    <ClCompile Include="..\src\heatwave_api_prx_ps3.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3' and $(Configuration.EndsWith('Dynamic'))">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_ringbuffer.cpp" />
+    <ClCompile Include="..\src\heatwave_api_sfx.cpp" />
+    <ClCompile Include="..\src\heatwave_api_sfxinternal.cpp" />
+    <ClCompile Include="..\src\heatwave_api_sound.cpp" />
+    <ClCompile Include="..\src\heatwave_api_soundinternal.cpp" />
+    <ClCompile Include="..\src\heatwave_api_source.cpp" />
+    <ClCompile Include="..\src\heatwave_api_sourceinternal.cpp" />
+    <ClCompile Include="..\src\heatwave_api_synthchannelinterface.cpp" />
+    <ClCompile Include="..\src\heatwave_api_synthchannelsurroundparams.cpp" />
+    <ClCompile Include="..\src\heatwave_api_synthinterface.cpp" />
+    <ClCompile Include="..\src\heatwave_api_system.cpp" />
+    <ClCompile Include="..\src\heatwave_api_systeminternal.cpp" />
+    <ClCompile Include="..\src\heatwave_api_voiceinternal.cpp" />
+    <ClCompile Include="..\src\heatwave_api_wavcodec.cpp" />
+    <ClCompile Include="..\src\MP3\heatwave_api_decoder_mp3.cpp" />
+    <ClCompile Include="..\src\MP3\heatwave_api_decoder_mp3_buffer_win.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\MP3\heatwave_api_decoder_mp3_orbis.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\MP3\heatwave_api_decoder_mp3_ps3.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\MP3\heatwave_api_decoder_mp3_psvita.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\MP3\heatwave_api_decoder_mp3_win.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\MP3\heatwave_api_mp3packetheader.cpp" />
+    <ClCompile Include="..\src\Synths\heatwave_api_ngs2_a3dmodule.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synthchannel_multistream.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synthchannel_ngs.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synthchannel_ngs2.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synthchannel_ngs2libaudio3d.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synthchannel_xaudio2.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synth_multistream.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synth_ngs.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synth_ngs2.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synth_xaudio2.cpp">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">false</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\heatwave_api.h" />
+    <ClInclude Include="..\include\heatwave_api_errors.h" />
+    <ClInclude Include="..\include\heatwave_api_types.h" />
+    <ClInclude Include="..\include_internal\ATRAC9\heatwave_api_decoder_at9.h" />
+    <ClInclude Include="..\include_internal\ATRAC9\heatwave_api_decoder_at9_psvita.h">
+	  <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+	</ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_adpcmcodec.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_at9codec.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_audiocodec.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_audiofilestream.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_audiostream.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_audiostream_pcm.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_datasource.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_file.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_handleconvert.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_memory.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_mp3codec.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_panner.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_platform.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_ringbuffer.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_sfxinternal.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_soundinternal.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_sourceinternal.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_synthchannelinterface.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_synthchannelsurroundparams.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_synthinterface.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_systeminternal.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_voiceinternal.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_wavcodec.h" />
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_decoder_mp3.h" />
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_decoder_mp3_buffer_win.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_decoder_mp3_orbis.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_decoder_mp3_ps3.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_decoder_mp3_psvita.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_decoder_mp3_win.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_mp3packetheader.h" />
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_ngs2_a3dmodule.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synthchannel_multistream.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synthchannel_ngs.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synthchannel_ngs2.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synthchannel_ngs2libaudio3d.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synthchannel_xaudio2.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synth_multistream.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synth_ngs.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synth_ngs2.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synth_xaudio2.h">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='x64'">false</ExcludedFromBuild>
+    </ClInclude>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{168AEC88-3204-46D4-9E11-913FE9B31579}</ProjectGuid>
+  </PropertyGroup>
+  <!--
+		PlatformToolset
+	-->
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='11.0' and ('$(Platform)'=='Win32' or '$(Platform)'=='x64')">
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='12.0' and ('$(Platform)'=='Win32' or '$(Platform)'=='x64')">
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='14.0' and ('$(Platform)'=='Win32' or '$(Platform)'=='x64')">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(VisualStudioVersion)'=='15.0' and ('$(Platform)'=='Win32' or '$(Platform)'=='x64')">
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration.Contains(`Dynamic`))" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration.Contains(`Dynamic`))==False" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Platform)'=='PS3'and $(Configuration.Contains(`PS3SNC`))==False">
+    <PlatformToolset>GCC</PlatformToolset>
+    <ExceptionsAndRtti>NoExceptsNoRtti</ExceptionsAndRtti>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Platform)'=='PS3' and $(Configuration.Contains(`PS3SNC`))">
+    <PlatformToolset>SNC</PlatformToolset>
+  </PropertyGroup>
+  <!--
+		UseDebugLibraries
+	-->
+  <PropertyGroup Condition="('$(Platform)'=='Win32' or '$(Platform)'=='x64') and $(Configuration.Contains(`Debug`))" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="heatwave_api.props" />
+  </ImportGroup>
+  <!--
+		TargetName
+	-->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>SceHeatWaveD</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>SceHeatWaveD</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>SceHeatWave</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>SceHeatWave</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ORBIS'">
+    <TargetName>libSceHeatWaveD</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ORBIS'">
+    <TargetName>libSceHeatWave</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'">
+    <TargetName>libSceHeatWaveGCCD</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|PS3'">
+    <TargetName>libSceHeatWaveGCC</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PS3SNCDebug|PS3'">
+    <TargetName>libSceHeatWaveSNCD</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PS3SNCRelease|PS3'">
+    <TargetName>libSceHeatWaveSNC</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PSVita'">
+    <TargetName>libSceHeatWaveD</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|PSVita'">
+    <TargetName>libSceHeatWave</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)'=='PS3' and $(Configuration.Contains('Dynamic'))">
+    <PrxModuleName>$(TargetName)</PrxModuleName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

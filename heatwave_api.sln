@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "heatwave_api", "proj\heatwave_api.vcxproj", "{168AEC88-3204-46D4-9E11-913FE9B31579}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ORBIS = Debug|ORBIS
+		Debug|PS3GCC = Debug|PS3GCC
+		Debug|PS3SNC = Debug|PS3SNC
+		Debug|PSVita = Debug|PSVita
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		DebugDynamic|ORBIS = DebugDynamic|ORBIS
+		DebugDynamic|PS3GCC = DebugDynamic|PS3GCC
+		DebugDynamic|PS3SNC = DebugDynamic|PS3SNC
+		DebugDynamic|PSVita = DebugDynamic|PSVita
+		DebugDynamic|Win32 = DebugDynamic|Win32
+		DebugDynamic|x64 = DebugDynamic|x64
+		Release|ORBIS = Release|ORBIS
+		Release|PS3GCC = Release|PS3GCC
+		Release|PS3SNC = Release|PS3SNC
+		Release|PSVita = Release|PSVita
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+		ReleaseDynamic|ORBIS = ReleaseDynamic|ORBIS
+		ReleaseDynamic|PS3GCC = ReleaseDynamic|PS3GCC
+		ReleaseDynamic|PS3SNC = ReleaseDynamic|PS3SNC
+		ReleaseDynamic|PSVita = ReleaseDynamic|PSVita
+		ReleaseDynamic|Win32 = ReleaseDynamic|Win32
+		ReleaseDynamic|x64 = ReleaseDynamic|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Debug|ORBIS.ActiveCfg = Debug|ORBIS
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Debug|ORBIS.Build.0 = Debug|ORBIS
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Debug|PS3GCC.ActiveCfg = Debug|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Debug|PS3GCC.Build.0 = Debug|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Debug|PS3SNC.ActiveCfg = PS3SNCDebug|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Debug|PS3SNC.Build.0 = PS3SNCDebug|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Debug|PSVita.ActiveCfg = Debug|PSVita
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Debug|PSVita.Build.0 = Debug|PSVita
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Debug|Win32.ActiveCfg = Debug|Win32
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Debug|Win32.Build.0 = Debug|Win32
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Debug|x64.ActiveCfg = Debug|x64
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Debug|x64.Build.0 = Debug|x64
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.DebugDynamic|ORBIS.ActiveCfg = DebugDynamic|ORBIS
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.DebugDynamic|ORBIS.Build.0 = DebugDynamic|ORBIS
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.DebugDynamic|PS3GCC.ActiveCfg = DebugDynamic|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.DebugDynamic|PS3GCC.Build.0 = DebugDynamic|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.DebugDynamic|PS3SNC.ActiveCfg = PS3SNCDebugDynamic|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.DebugDynamic|PS3SNC.Build.0 = PS3SNCDebugDynamic|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.DebugDynamic|PSVita.ActiveCfg = DebugDynamic|PSVita
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.DebugDynamic|PSVita.Build.0 = DebugDynamic|PSVita
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.DebugDynamic|Win32.ActiveCfg = DebugDynamic|Win32
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.DebugDynamic|Win32.Build.0 = DebugDynamic|Win32
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.DebugDynamic|x64.ActiveCfg = DebugDynamic|x64
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.DebugDynamic|x64.Build.0 = DebugDynamic|x64
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Release|ORBIS.ActiveCfg = Release|ORBIS
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Release|ORBIS.Build.0 = Release|ORBIS
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Release|PS3GCC.ActiveCfg = Release|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Release|PS3GCC.Build.0 = Release|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Release|PS3SNC.ActiveCfg = PS3SNCRelease|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Release|PS3SNC.Build.0 = PS3SNCRelease|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Release|PSVita.ActiveCfg = Release|PSVita
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Release|PSVita.Build.0 = Release|PSVita
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Release|Win32.ActiveCfg = Release|Win32
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Release|Win32.Build.0 = Release|Win32
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Release|x64.ActiveCfg = Release|x64
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.Release|x64.Build.0 = Release|x64
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.ReleaseDynamic|ORBIS.ActiveCfg = ReleaseDynamic|ORBIS
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.ReleaseDynamic|ORBIS.Build.0 = ReleaseDynamic|ORBIS
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.ReleaseDynamic|PS3GCC.ActiveCfg = ReleaseDynamic|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.ReleaseDynamic|PS3GCC.Build.0 = ReleaseDynamic|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.ReleaseDynamic|PS3SNC.ActiveCfg = PS3SNCReleaseDynamic|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.ReleaseDynamic|PS3SNC.Build.0 = PS3SNCReleaseDynamic|PS3
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.ReleaseDynamic|PSVita.ActiveCfg = ReleaseDynamic|PSVita
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.ReleaseDynamic|PSVita.Build.0 = ReleaseDynamic|PSVita
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.ReleaseDynamic|Win32.ActiveCfg = ReleaseDynamic|Win32
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.ReleaseDynamic|Win32.Build.0 = ReleaseDynamic|Win32
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.ReleaseDynamic|x64.ActiveCfg = ReleaseDynamic|x64
+		{168AEC88-3204-46D4-9E11-913FE9B31579}.ReleaseDynamic|x64.Build.0 = ReleaseDynamic|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

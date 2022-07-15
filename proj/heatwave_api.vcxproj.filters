@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Synth">
+      <UniqueIdentifier>{5cf24ff5-f6f5-4000-86ed-6acaf109ff3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Synth\NGS2">
+      <UniqueIdentifier>{3297c01e-6a22-4741-b3e4-e424241101a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Synth\XAudio2">
+      <UniqueIdentifier>{4d58b7a3-2c5b-42e7-8c56-46bdd48787ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Synth\NGS">
+      <UniqueIdentifier>{e78182c4-35c5-42b1-9677-9ee4c92e41ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Synth\MultiStream">
+      <UniqueIdentifier>{3931e31f-c369-4c11-b95a-f38751bd6975}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MP3">
+      <UniqueIdentifier>{3be2be78-f09b-4014-a55e-0d9440e4eece}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\internal">
+      <UniqueIdentifier>{fb976e77-c441-4e86-a687-c0f9f4da33f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\internal\MP3">
+      <UniqueIdentifier>{14f11f24-c176-43ca-8da6-0b545429e48d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\internal\Synth">
+      <UniqueIdentifier>{d983a184-8c48-4ea1-a203-d8442783cd9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\internal\Synth\MultiStream">
+      <UniqueIdentifier>{498d082f-1e41-4c0f-9931-526685f31bc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\internal\Synth\NGS">
+      <UniqueIdentifier>{774fcd60-7a66-473e-8309-7aa53f3e53de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\internal\Synth\NGS2">
+      <UniqueIdentifier>{90b1b078-c4e6-44c8-b90c-86d37879152f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\internal\Synth\XAudio2">
+      <UniqueIdentifier>{4c331bf0-da7b-47ff-9131-ee94fe9d8863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\internal\ATRAC9">
+      <UniqueIdentifier>{d16813da-61fb-4cb5-9111-1a3ec724cb00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ATRAC9">
+      <UniqueIdentifier>{8b53871a-4613-48be-a65a-4b4872feb65a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\heatwave_api_audiocodec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_audiofilestream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_audiostream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_datasource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_handleconvert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_memory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_mp3codec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_panner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_platform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_prx_ps3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_ringbuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_sfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_sfxinternal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_soundinternal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_sourceinternal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_synthchannelinterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_synthchannelsurroundparams.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_synthinterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_system.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_systeminternal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_voiceinternal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_wavcodec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_audiostream_pcm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synthchannel_ngs2.cpp">
+      <Filter>Source Files\Synth\NGS2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synthchannel_ngs2libaudio3d.cpp">
+      <Filter>Source Files\Synth\NGS2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MP3\heatwave_api_decoder_mp3_buffer_win.cpp">
+      <Filter>Source Files\MP3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MP3\heatwave_api_decoder_mp3_orbis.cpp">
+      <Filter>Source Files\MP3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MP3\heatwave_api_decoder_mp3_ps3.cpp">
+      <Filter>Source Files\MP3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MP3\heatwave_api_decoder_mp3_psvita.cpp">
+      <Filter>Source Files\MP3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MP3\heatwave_api_decoder_mp3_win.cpp">
+      <Filter>Source Files\MP3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synth_ngs2.cpp">
+      <Filter>Source Files\Synth\NGS2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synthchannel_ngs.cpp">
+      <Filter>Source Files\Synth\NGS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synth_ngs.cpp">
+      <Filter>Source Files\Synth\NGS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synth_multistream.cpp">
+      <Filter>Source Files\Synth\MultiStream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synthchannel_multistream.cpp">
+      <Filter>Source Files\Synth\MultiStream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synthchannel_xaudio2.cpp">
+      <Filter>Source Files\Synth\XAudio2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_synth_xaudio2.cpp">
+      <Filter>Source Files\Synth\XAudio2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MP3\heatwave_api_mp3packetheader.cpp">
+      <Filter>Source Files\MP3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MP3\heatwave_api_decoder_mp3.cpp">
+      <Filter>Source Files\MP3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Synths\heatwave_api_ngs2_a3dmodule.cpp">
+      <Filter>Source Files\Synth\NGS2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_at9codec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_adpcmcodec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ATRAC9\heatwave_api_decoder_at9.cpp">
+      <Filter>Source Files\ATRAC9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ATRAC9\heatwave_api_decoder_at9_psvita.cpp">
+      <Filter>Source Files\ATRAC9</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\heatwave_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\heatwave_api_errors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\heatwave_api_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_audiocodec.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_audiofilestream.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_audiostream.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_audiostream_pcm.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_datasource.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_file.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_handleconvert.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_memory.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_mp3codec.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_panner.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_platform.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_ringbuffer.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_sfxinternal.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_soundinternal.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_sourceinternal.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_synthchannelinterface.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_synthchannelsurroundparams.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_synthinterface.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_systeminternal.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_voiceinternal.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_wavcodec.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_decoder_mp3.h">
+      <Filter>Header Files\internal\MP3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_decoder_mp3_buffer_win.h">
+      <Filter>Header Files\internal\MP3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_decoder_mp3_orbis.h">
+      <Filter>Header Files\internal\MP3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_decoder_mp3_ps3.h">
+      <Filter>Header Files\internal\MP3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_decoder_mp3_psvita.h">
+      <Filter>Header Files\internal\MP3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_decoder_mp3_win.h">
+      <Filter>Header Files\internal\MP3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\MP3\heatwave_api_mp3packetheader.h">
+      <Filter>Header Files\internal\MP3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synth_multistream.h">
+      <Filter>Header Files\internal\Synth\MultiStream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synth_ngs.h">
+      <Filter>Header Files\internal\Synth\NGS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synth_ngs2.h">
+      <Filter>Header Files\internal\Synth\NGS2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synth_xaudio2.h">
+      <Filter>Header Files\internal\Synth\XAudio2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synthchannel_multistream.h">
+      <Filter>Header Files\internal\Synth\MultiStream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synthchannel_ngs.h">
+      <Filter>Header Files\internal\Synth\NGS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synthchannel_ngs2.h">
+      <Filter>Header Files\internal\Synth\NGS2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synthchannel_ngs2libaudio3d.h">
+      <Filter>Header Files\internal\Synth\NGS2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_synthchannel_xaudio2.h">
+      <Filter>Header Files\internal\Synth\XAudio2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\Synths\heatwave_api_ngs2_a3dmodule.h">
+      <Filter>Header Files\internal\Synth\NGS2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_at9codec.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\ATRAC9\heatwave_api_decoder_at9.h">
+      <Filter>Header Files\internal\ATRAC9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\ATRAC9\heatwave_api_decoder_at9_psvita.h">
+      <Filter>Header Files\internal\ATRAC9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_adpcmcodec.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

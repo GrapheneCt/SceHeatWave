@@ -1,0 +1,59 @@
+1. The HeatWave software product, whether in source code or
+object code form (the "Software"), is provided strictly under the
+terms of the applicable Tools & Middleware License Agreement, Tools &
+Material Loan Agreement, Licensed Developer Agreement and/or Licensed
+Publisher Agreement (or equivalent agreement(s)) issued by Sony
+Interactive Entertainment Inc ("SIE Inc") or any of its affiliates,
+subject to the following additional terms.  If you or your
+organization has not signed the applicable agreement with SIE Inc or
+its affiliates, you may not use the Software.
+
+2. By installing the Software you agree to all of the terms set out
+below on behalf of your organization.
+
+3. The Software may be used and/or altered for the development of
+your tool and/or middleware products and/or game titles for any
+platform.
+
+4. The Software, or any altered versions, may be redistributed to any
+entity, subject to the following restrictions:
+
+a. The origin of the Software shall not be misrepresented; you shall
+not claim that you wrote the original software.
+
+b. If the Software, or any altered versions, is used in a product, an
+acknowledgment in the product documentation would be appreciated but
+is not required.
+
+c. Altered source versions shall be plainly marked as such, and shall
+not be misrepresented as being the original Software.
+
+d. The Software, or any altered versions, may be redistributed to end
+users or retailers in binary form as part of a game title or other
+end-user product.
+
+e. The Software, or any altered versions, may be redistributed to
+game developers and/or publishers in source and/or binary form only
+as part of a tool and/or middleware, provided that you shall cause
+such game developers and/or publishers to be subject to the
+restrictions set forth in this Clause 4.
+
+f. The Software, or any altered versions, may be redistributed to any
+third parties in source and/or binary form only as part of a game
+title, provided that you shall have executed a non disclosure
+agreement with such third parties to maintain the confidentiality of
+the Software and shall cause such third parties to be subject to the
+restrictions set forth in this Clause 4.
+
+g. These terms shall appear unaltered in any source distribution.
+
+5. Breach of any of the terms of Clause 4 above shall entitle SIE Inc
+or any of its affiliates to terminate all rights to use the Software
+immediately on notice.
+
+6. The license of the Software shall otherwise be subject to, and
+used in accordance with, the terms of the applicable Tools &
+Middleware License Agreement, Tools & Materials Loan Agreement,
+Licensed Development Agreement and/or Licensed Publisher Agreement
+(or equivalent agreement(s)) issued by SIE Inc or any of its
+affiliates.
