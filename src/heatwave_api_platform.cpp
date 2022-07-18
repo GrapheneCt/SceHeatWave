@@ -175,7 +175,7 @@ namespace sce{
             MutexPsp2()
             : Mutex()
             {
-				sceKernelCreateLwMutex(&m_mutex, "Mutex", SCE_KERNEL_MUTEX_ATTR_TH_FIFO | SCE_KERNEL_MUTEX_ATTR_RECURSIVE, 0, NULL);
+                sceKernelCreateLwMutex(&m_mutex, "Mutex", SCE_KERNEL_MUTEX_ATTR_TH_FIFO | SCE_KERNEL_MUTEX_ATTR_RECURSIVE, 0, NULL);
             }
 
             ~MutexPsp2()
@@ -194,7 +194,7 @@ namespace sce{
             }
 
         private:
-			SceKernelLwMutexWork m_mutex;
+            SceKernelLwMutexWork m_mutex;
         };
 
         Mutex* _sceHeatWaveCreateMutex()

@@ -533,4 +533,12 @@ typedef struct SceHwSourceRuntimeStreamCallbackInfo
 * @see          sceHeatWaveSourceLoadRuntimeStream()
 */
 typedef void(*SceHwSourceRuntimeStreamCallbackFunction)(SceHwSourceRuntimeStreamCallbackInfo *pCallbackInfo, void *pUserData, ScewHwSourceRuntimeStreamCallbackType reason);
+
+#define SCE_HEATWAVE_API_DISTANCE_MODEL_INVERSE_CLAMPED       (7)
+#define SCE_HEATWAVE_API_DISTANCE_MODEL_INVERSE               (6)
+#define SCE_HEATWAVE_API_DISTANCE_MODEL_LINEAR_CLAMPED        (5)
+#define SCE_HEATWAVE_API_DISTANCE_MODEL_LINEAR                (4)
+#define SCE_HEATWAVE_API_DISTANCE_MODEL_EXPONENT_CLAMPED      (3)
+#define SCE_HEATWAVE_API_DISTANCE_MODEL_EXPONENT              (2)
+#define SCE_HEATWAVE_API_DISTANCE_MODEL_DISABLE               (1)
 #endif /* _SCE_HEATWAVE_TYPES_H_ */

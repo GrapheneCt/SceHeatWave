@@ -388,6 +388,46 @@ SceHwError sceHeatWaveSourceSetRolloffDistances(SceHwSource hSourceHandle, float
     return SCE_HEATWAVE_API_OK;
 }
 
+SceHwError sceHeatWaveSourceSetDistanceFactor(SceHwSource hSourceHandle, float32_t fFactor)
+{
+    SourceInternal *sourceInternal = NULL;
+
+    if (SystemInternal::getInstance() == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    if (!isfinite(fFactor))
+    {
+        return SCE_HEATWAVE_API_ERROR_PARAM;
+    }
+
+    if (fFactor < 0.0f)
+    {
+        return SCE_HEATWAVE_API_ERROR_PARAM;
+    }
+
+    SCE_HEATWAVE_LOCK();
+
+    sourceInternal = _sceHeatWaveGetSourceInternal(hSourceHandle);
+    if (sourceInternal == NULL)
+    {
+        SCE_HEATWAVE_UNLOCK();
+        return SCE_HEATWAVE_API_ERROR_HANDLE;
+    }
+
+    if (sourceInternal->type() != eSource3d)
+    {
+        SCE_HEATWAVE_UNLOCK();
+        return SCE_HEATWAVE_API_ERROR_INVALID_OPERATION;
+    }
+
+    sourceInternal->distanceFactor() = fFactor;
+
+    SCE_HEATWAVE_UNLOCK();
+    return SCE_HEATWAVE_API_OK;
+}
+
 SceHwError sceHeatWaveSourceSetCone(SceHwSource hSourceHandle, float32_t fInsideAngle, float32_t fOutsideAngle, float32_t fOutsideGain, float32_t fOutsideFreq)
 {
     SourceInternal *sourceInternal = NULL;

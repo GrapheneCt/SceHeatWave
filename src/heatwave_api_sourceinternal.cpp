@@ -96,6 +96,16 @@ namespace sce{
             return m_maxDistance;
         }
 
+        float32_t& SourceInternal::distanceFactor()
+        {
+            return m_distanceFactor;
+        }
+
+        const float32_t& SourceInternal::distanceFactor() const
+        {
+            return m_distanceFactor;
+        }
+
         float32_t& SourceInternal::insideAngle()
         {
             return m_insideAngle;

@@ -69,6 +69,7 @@ SYS_LIB_EXPORT(sceHeatWaveSoundSetLoopCount, libSceHeatWave);
 SYS_LIB_EXPORT(sceHeatWaveSourceSetType, libSceHeatWave);
 SYS_LIB_EXPORT(sceHeatWaveSourceSetLoopCount, libSceHeatWave);
 SYS_LIB_EXPORT(sceHeatWaveSourceSetRolloffDistances, libSceHeatWave);
+SYS_LIB_EXPORT(sceHeatWaveSourceSetDistanceFactor, libSceHeatWave);
 SYS_LIB_EXPORT(sceHeatWaveSourceSetCone, libSceHeatWave);
 SYS_LIB_EXPORT(sceHeatWaveSourceSetPan, libSceHeatWave);
 SYS_LIB_EXPORT(sceHeatWaveSourceSetVolume, libSceHeatWave);
@@ -77,4 +78,10 @@ SYS_LIB_EXPORT(sceHeatWaveSourceGetInfo, libSceHeatWave);
 SYS_LIB_EXPORT(sceHeatWaveSfxGetState, libSceHeatWave);
 SYS_LIB_EXPORT(sceHeatWaveSfxGetInfo, libSceHeatWave);
 SYS_LIB_EXPORT(sceHeatWaveGetSupportedMimeTypes, libSceHeatWave);
+SYS_LIB_EXPORT(sceHeatWaveSetSpeedOfSound, libSceHeatWave);
+SYS_LIB_EXPORT(sceHeatWaveGetSpeedOfSound, libSceHeatWave);
+SYS_LIB_EXPORT(sceHeatWaveSetDopplerFactor, libSceHeatWave);
+SYS_LIB_EXPORT(sceHeatWaveGetDopplerFactor, libSceHeatWave);
+SYS_LIB_EXPORT(sceHeatWaveSetDistanceModel, libSceHeatWave);
+SYS_LIB_EXPORT(sceHeatWaveGetDistanceModel, libSceHeatWave);
 

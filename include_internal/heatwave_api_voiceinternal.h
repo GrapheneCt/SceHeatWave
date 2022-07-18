@@ -65,6 +65,7 @@ namespace sce{
             SceHwError setVelocity(SceHwVector vVel);
             SceHwError setForward(SceHwVector vDir);
             SceHwError setMinMaxDistance(float32_t fMin, float32_t fMax);
+            SceHwError setDistanceFactor(float32_t fFactor);
             SceHwError setCone(float32_t fInsideAng, float32_t fOutsideAng, float32_t fOutsideGain, float32_t fOutsideFreq);
             SceHwError setPan(float32_t fPan);
             SceHwError getType(SceHwSourceType *pTypeOut);

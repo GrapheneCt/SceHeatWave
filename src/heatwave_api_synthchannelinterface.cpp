@@ -224,6 +224,19 @@ namespace sce{
             return SCE_HEATWAVE_API_OK;
         }
 
+        SceHwError SynthChannel::setDistanceFactor(float32_t fFactor)
+        {
+            if (fFactor < 0.0f)
+            {
+                return SCE_HEATWAVE_API_ERROR_PARAM;
+            }
+
+            m_surroundParams.fDistanceFactor = fFactor;
+            flagSurroundParamsAsDirty();
+
+            return SCE_HEATWAVE_API_OK;
+        }
+
         SceHwError SynthChannel::setEmitterCone(float32_t fInsideAng, float32_t fOutsideAng, float32_t fOutsideGain, float32_t fOutsideFreq)
         {
             if (fInsideAng < 0.0f || fInsideAng > 360.0f)

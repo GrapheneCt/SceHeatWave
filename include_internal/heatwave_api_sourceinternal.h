@@ -52,6 +52,9 @@ namespace sce{
             float32_t&       maxDistance();
             const float32_t& maxDistance() const;
 
+            float32_t&       distanceFactor();
+            const float32_t& distanceFactor() const;
+
             float32_t&       insideAngle();
             const float32_t& insideAngle() const;
 
@@ -86,8 +89,9 @@ namespace sce{
 
             int32_t m_loopCount;
 
-            float32_t m_minDistance;  ///< eSource3d
-            float32_t m_maxDistance;  ///< eSource3d
+            float32_t m_minDistance;     ///< eSource3d
+            float32_t m_maxDistance;     ///< eSource3d
+            float32_t m_distanceFactor;  ///< eSource3d
 
             float32_t m_insideAngle;  ///< eSource3d
             float32_t m_outsideAngle; ///< eSource3d

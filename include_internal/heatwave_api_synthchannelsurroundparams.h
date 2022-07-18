@@ -38,6 +38,7 @@ namespace sce{
             float32_t   fOutsideFreq;       ///< low pass freq at fOutsideAngle
             bool        bListenerRelative;  ///< Is the position relative to the listener position
             int32_t     nPriority;          ///< Priority used for playback (libAudio3d)
+            float32_t   fDistanceFactor;    ///< Distance volume attenuation factor
         };
 
     } /* HeatWave */

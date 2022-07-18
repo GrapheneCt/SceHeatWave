@@ -210,13 +210,6 @@ const float32_t kfSourcePitchMin = 0.0f;
 const float32_t kfSourcePitchMax = 2.0f;
 
 /**
-* @brief Defines the speed of sound in meters per second.
-*
-* @see sceHeatWaveSetListener(), sceHeatWaveSfxSetVelocity()
-*/
-const float32_t kfSpeedOfSound = 343.3f;
-
-/**
 * @brief The highest priority an Audio3d <c>SceHwSfx</c> can have.
 *
 * @see sceHeatWaveSfxPlay()
@@ -363,15 +356,16 @@ SCE_HEATWAVE_FUNC SceHwError sceHeatWaveCloseUserOutput(int32_t nOutputId);
 *                           has a velocity of greater than 0.
 * @param[in]    vForward    The direction the listener is facing.
 * @param[in]    vUp         The normal to the direction vector, which is used to determine what is left and what is right for the listener.
+* @param[in]    fGain       Gain of the listener object
 *
 * @return       See <c>SCE_HEATWAVE_API_OK</c> and other return codes.
 *
 * @note         A right hand coordinate system is used.
-* @note         The value passed to the <c><i>vVelocity</i></c> parameter <b>must</b> be less than <c>kfSpeedOfSoundSq</c>.
+* @note         The value passed to the <c><i>vVelocity</i></c> parameter <b>must</b> be less than <c>sceHeatWaveGetSpeedOfSound</c>.
 *
 * @see          SceHwVector
 */
-SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSetListener(SceHwVector vPosition, SceHwVector vVelocity, SceHwVector vForward, SceHwVector vUp);
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSetListener(SceHwVector vPosition, SceHwVector vVelocity, SceHwVector vForward, SceHwVector vUp, float32_t fGain);
 
 /**
 * @brief        Set the user callback for HeatWave.
@@ -686,7 +680,7 @@ SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSfxSetPosition(SceHwSfx hSfxHandle, SceH
 *
 * @note     A right hand coordinate system is used for this operation.
 *
-* @note     The value passed to the <c><i>vVelocity</i></c> parameter <b>must</b> be less than <c>kfSpeedOfSoundSq</c>.
+* @note     The value passed to the <c><i>vVelocity</i></c> parameter <b>must</b> be less than <c>sceHeatWaveGetSpeedOfSound</c>.
 *
 * @note     This function is only relevant when a sound source being played for this sound effect
 *           has been defined as 3D.
@@ -924,6 +918,8 @@ SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSourceSetLoopCount(SceHwSource hSourceHa
 */
 SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSourceSetRolloffDistances(SceHwSource hSourceHandle, float32_t fMinDistance, float32_t fMaxDistance);
 
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSourceSetDistanceFactor(SceHwSource hSourceHandle, float32_t fFactor);
+
 /**
 * @brief    Sets the 3D cone for a sound source.
 *
@@ -1044,6 +1040,60 @@ SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSfxGetInfo(SceHwSfx hSfxHandle, SceHwSfx
 * @return   See <c>SCE_HEATWAVE_API_OK</c> and other return codes.
 */
 SCE_HEATWAVE_FUNC SceHwError sceHeatWaveGetSupportedMimeTypes(const char **ppMimeListOut[], uint32_t *pSizeOut);
+
+/**
+* @brief    Set global value for speed of sound
+*
+* @param[in]    fSpeedOfSound   Value of speed of sound
+*
+* @return   See <c>SCE_HEATWAVE_API_OK</c> and other return codes.
+*/
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSetSpeedOfSound(float32_t fSpeedOfSound);
+
+/**
+* @brief    Get global value for speed of sound
+*
+* @param[out]    pfSpeedOfSound   Value of speed of sound
+*
+* @return   See <c>SCE_HEATWAVE_API_OK</c> and other return codes.
+*/
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveGetSpeedOfSound(float32_t *pfSpeedOfSound);
+
+/**
+* @brief    Set global value for doppler effect scale factor
+*
+* @param[in]    fSpeedOfSound   Value of doppler effect scale factor
+*
+* @return   See <c>SCE_HEATWAVE_API_OK</c> and other return codes.
+*/
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSetDopplerFactor(float32_t fDopplerFactor);
+
+/**
+* @brief    Set distance model
+*
+* @param[in]    nModel   Value of distance model
+*
+* @return   See <c>SCE_HEATWAVE_API_OK</c> and other return codes.
+*/
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSetDistanceModel(int32_t nModel);
+
+/**
+* @brief    Get distance model
+*
+* @param[in]    pnModel   Value of distance model
+*
+* @return   See <c>SCE_HEATWAVE_API_OK</c> and other return codes.
+*/
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveGetDistanceModel(int32_t *pnModel);
+
+/**
+* @brief    Get global value for doppler effect scale factor
+*
+* @param[out]    pfDopplerFactor   Value of doppler effect scale factor
+*
+* @return   See <c>SCE_HEATWAVE_API_OK</c> and other return codes.
+*/
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveGetDopplerFactor(float32_t *pfDopplerFactor);
 
 
 #if defined(_LANGUAGE_C_PLUS_PLUS)||defined(__cplusplus)||defined(c_plusplus)

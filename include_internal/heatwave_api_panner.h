@@ -49,10 +49,21 @@ namespace sce{
             SceHwError setListenerVelocity(SceHwVector vVelocity);
             SceHwError setListenerOrientation(SceHwVector vForward, SceHwVector vUp);
 
+            SceHwError setDopplerFactor(float32_t fFactor);
+            SceHwError getDopplerFactor(float32_t *pfFactor);
+            SceHwError setSpeedOfSound(float32_t fSpeed);
+            SceHwError getSpeedOfSound(float32_t *pfSpeed);
+
+            SceHwError setListenerGain(float32_t fGain);
+            SceHwError getListenerGain(float32_t *pfGain);
+
+            SceHwError setDistanceModel(int32_t nModel);
+            SceHwError getDistanceModel(int32_t *pnModel);
+
             SceHwError calculate(SynthChannelSurroundParams* pParams, uint32_t uNumVolumes, float32_t *pVolumeMatrixOut, float32_t *pDopplerShiftOut, float32_t *pLowPassOut);
 
             SceHwError getListenerRelativePosition(SceHwVector vPosition, SceHwVector *pRelativePositionOut);
-            SceHwError calcDistanceGain(SceHwVector vRelativePostion, float32_t fMinDistance, float32_t fMaxDistance, float32_t *pDistanceGainOut);
+            SceHwError calcDistanceGain(SceHwVector vRelativePostion, float32_t fMinDistance, float32_t fMaxDistance, float32_t fDistanceFactor, float32_t *pDistanceGainOut);
             SceHwError calcDopplerShift(SceHwVector vRelativePosition, SceHwVector vVelocity, float32_t *pDopplerShiftOut);
             SceHwError calcCone(SceHwVector vRelativePosition, SceHwVector vForward, float32_t fInsideAngle, float32_t fOutsideAngle, float32_t fOutsideGain, float32_t fOutsideLowpass, float32_t *pGainOut, float32_t *pFilterLowpassOut);
             SceHwError calcSpeakerVolumes(SceHwVector vRelativePosition, float32_t *pVolumeMatrixOut, uint32_t uNumVolumes);
@@ -62,6 +73,10 @@ namespace sce{
             SceHwVector m_velocity;
             SceHwVector m_forward;
             SceHwVector m_up;
+            float32_t m_dopplerFactor;
+            float32_t m_speedOfSound;
+            float32_t m_gain;
+            int32_t m_distanceModel;
         };
 
     } /* HeatWave */

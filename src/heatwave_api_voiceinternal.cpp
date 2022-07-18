@@ -451,6 +451,27 @@ namespace sce{
             return res;
         }
 
+        SceHwError VoiceInternal::setDistanceFactor(float32_t fFactor)
+        {
+            SceHwError res = SCE_HEATWAVE_API_OK;
+
+            if (m_channel == NULL)
+            {
+                return SCE_HEATWAVE_API_ERROR;
+            }
+            if (m_sourceHandle == NULL)
+            {
+                return SCE_HEATWAVE_API_ERROR;
+            }
+            if (m_sourceHandle->type() == eSource2d)
+            {
+                return SCE_HEATWAVE_API_ERROR;
+            }
+
+            res = m_channel->setDistanceFactor(fFactor);
+            return res;
+        }
+
         SceHwError VoiceInternal::setCone(float32_t fInsideAng, float32_t fOutsideAng, float32_t fOutsideGain, float32_t fOutsideFreq)
         {
             SceHwError res = SCE_HEATWAVE_API_OK;
@@ -714,6 +735,12 @@ namespace sce{
             if (m_sourceHandle->type() == eSource3d)
             {
                 res = setMinMaxDistance(m_sourceHandle->minDistance(), m_sourceHandle->maxDistance());
+                if (SCE_HEATWAVE_API_FAILED(res))
+                {
+                    return res;
+                }
+
+                res = setDistanceFactor(m_sourceHandle->distanceFactor());
                 if (SCE_HEATWAVE_API_FAILED(res))
                 {
                     return res;

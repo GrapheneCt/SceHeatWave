@@ -343,9 +343,17 @@ SceHwError sceHeatWaveSfxSetVelocity(SceHwSfx hSfxHandle, SceHwVector vVelocity)
     SfxInternal *sfxInternalHandle      = NULL;
     bool success = false;
     float32_t sfxspeedSq = 0.0f;
-    const float32_t kfSpeedOfSoundSq    = kfSpeedOfSound * kfSpeedOfSound;
-    
+    float32_t fSpeedOfSound = 0.0f;
+    SceHwError ret = SCE_HEATWAVE_API_OK;
 
+    ret = sceHeatWaveGetSpeedOfSound(&fSpeedOfSound);
+    if (SCE_HEATWAVE_API_FAILED(ret))
+    {
+        return ret;
+    }
+
+    const float32_t kfSpeedOfSoundSq    = fSpeedOfSound * fSpeedOfSound;
+    
     if (SystemInternal::getInstance() == NULL)
     {
         return SCE_HEATWAVE_API_ERROR;

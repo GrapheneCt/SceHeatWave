@@ -95,6 +95,7 @@ namespace sce{
             virtual SceHwError setForward(SceHwVector vForward);
 
             virtual SceHwError setRolloffDistances(float32_t fMinDistance, float32_t fMaxDistance);
+            virtual SceHwError setDistanceFactor(float32_t fFactor);
             virtual SceHwError setEmitterCone(float32_t fInsideAng, float32_t fOutsideAng, float32_t fOutsideGain, float32_t fOutsideFreq);
 
             virtual SceHwError setGainMultiplier(float32_t fGain);

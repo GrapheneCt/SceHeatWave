@@ -320,12 +320,12 @@
     <ClInclude Include="..\include\heatwave_api_types.h" />
     <ClInclude Include="..\include_internal\ATRAC9\heatwave_api_decoder_at9.h" />
     <ClInclude Include="..\include_internal\ATRAC9\heatwave_api_decoder_at9_psvita.h">
-	  <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Platform)'=='PS3'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Platform)'=='PSVita'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="..\include_internal\heatwave_api_adpcmcodec.h" />
     <ClInclude Include="..\include_internal\heatwave_api_at9codec.h" />
     <ClInclude Include="..\include_internal\heatwave_api_audiocodec.h" />

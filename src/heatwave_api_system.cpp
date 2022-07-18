@@ -197,7 +197,7 @@ SceHwError sceHeatWaveInit(SceHwInitParams *pParams)
 #endif
 
     /* Default listener to centre */
-    sceHeatWaveSetListener(zero, zero, forward, up);
+    sceHeatWaveSetListener(zero, zero, forward, up, 1.0f);
 
     return SCE_HEATWAVE_API_OK;
 }
@@ -414,7 +414,7 @@ SceHwError sceHeatWaveCloseUserOutput(int32_t nPadNumber)
     return SCE_HEATWAVE_API_OK;
 }
 
-SceHwError sceHeatWaveSetListener(SceHwVector vPosition, SceHwVector vVelocity, SceHwVector vForward, SceHwVector vUp)
+SceHwError sceHeatWaveSetListener(SceHwVector vPosition, SceHwVector vVelocity, SceHwVector vForward, SceHwVector vUp, float32_t fGain)
 {
     SceHwError res = SCE_HEATWAVE_API_OK;
     SystemInternal  *system = NULL;
@@ -446,6 +446,12 @@ SceHwError sceHeatWaveSetListener(SceHwVector vPosition, SceHwVector vVelocity, 
     }
 
     res = panner->setListenerOrientation(vForward, vUp);
+    if (SCE_HEATWAVE_API_FAILED(res))
+    {
+        return res;
+    }
+
+    res = panner->setListenerGain(fGain);
     if (SCE_HEATWAVE_API_FAILED(res))
     {
         return res;
@@ -762,6 +768,204 @@ SceHwError sceHeatWaveGetSupportedMimeTypes(const char **ppMimeList[], uint32_t 
 
     *ppMimeList = mimelist;
     *pNumEntries = sizeof(mimelist) / sizeof(mimelist[0]);
+
+    return SCE_HEATWAVE_API_OK;
+}
+
+SceHwError sceHeatWaveSetSpeedOfSound(float32_t fSpeedOfSound)
+{
+    SceHwError res = SCE_HEATWAVE_API_OK;
+    SystemInternal  *system = NULL;
+    Panner          *panner = NULL;
+
+
+    system = SystemInternal::getInstance();
+    if (system == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    panner = system->getPanner();
+    if (panner == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    res = panner->setSpeedOfSound(fSpeedOfSound);
+    if (SCE_HEATWAVE_API_FAILED(res))
+    {
+        return res;
+    }
+
+    /* Flush the updated listener settings through */
+    SCE_HEATWAVE_LOCK();
+    res = system->updateParameters();
+    SCE_HEATWAVE_UNLOCK();
+
+    if (SCE_HEATWAVE_API_FAILED(res))
+    {
+        return res;
+    }
+
+    return SCE_HEATWAVE_API_OK;
+}
+
+SceHwError sceHeatWaveGetSpeedOfSound(float32_t *pfSpeedOfSound)
+{
+    SceHwError res = SCE_HEATWAVE_API_OK;
+    SystemInternal  *system = NULL;
+    Panner          *panner = NULL;
+
+
+    system = SystemInternal::getInstance();
+    if (system == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    panner = system->getPanner();
+    if (panner == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    res = panner->getSpeedOfSound(pfSpeedOfSound);
+    if (SCE_HEATWAVE_API_FAILED(res))
+    {
+        return res;
+    }
+
+    return SCE_HEATWAVE_API_OK;
+}
+
+SceHwError sceHeatWaveSetDopplerFactor(float32_t fDopplerFactor)
+{
+    SceHwError res = SCE_HEATWAVE_API_OK;
+    SystemInternal  *system = NULL;
+    Panner          *panner = NULL;
+
+
+    system = SystemInternal::getInstance();
+    if (system == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    panner = system->getPanner();
+    if (panner == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    res = panner->setDopplerFactor(fDopplerFactor);
+    if (SCE_HEATWAVE_API_FAILED(res))
+    {
+        return res;
+    }
+
+    /* Flush the updated listener settings through */
+    SCE_HEATWAVE_LOCK();
+    res = system->updateParameters();
+    SCE_HEATWAVE_UNLOCK();
+
+    if (SCE_HEATWAVE_API_FAILED(res))
+    {
+        return res;
+    }
+
+    return SCE_HEATWAVE_API_OK;
+}
+
+SceHwError sceHeatWaveGetDopplerFactor(float32_t *pfDopplerFactor)
+{
+    SceHwError res = SCE_HEATWAVE_API_OK;
+    SystemInternal  *system = NULL;
+    Panner          *panner = NULL;
+
+
+    system = SystemInternal::getInstance();
+    if (system == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    panner = system->getPanner();
+    if (panner == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    res = panner->getDopplerFactor(pfDopplerFactor);
+    if (SCE_HEATWAVE_API_FAILED(res))
+    {
+        return res;
+    }
+
+    return SCE_HEATWAVE_API_OK;
+}
+
+SceHwError sceHeatWaveSetDistanceModel(int32_t nModel)
+{
+    SceHwError res = SCE_HEATWAVE_API_OK;
+    SystemInternal  *system = NULL;
+    Panner          *panner = NULL;
+
+
+    system = SystemInternal::getInstance();
+    if (system == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    panner = system->getPanner();
+    if (panner == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    res = panner->setDistanceModel(nModel);
+    if (SCE_HEATWAVE_API_FAILED(res))
+    {
+        return res;
+    }
+
+    /* Flush the updated listener settings through */
+    SCE_HEATWAVE_LOCK();
+    res = system->updateParameters();
+    SCE_HEATWAVE_UNLOCK();
+
+    if (SCE_HEATWAVE_API_FAILED(res))
+    {
+        return res;
+    }
+
+    return SCE_HEATWAVE_API_OK;
+}
+
+SceHwError sceHeatWaveGetDistanceModel(int32_t *pnModel)
+{
+    SceHwError res = SCE_HEATWAVE_API_OK;
+    SystemInternal  *system = NULL;
+    Panner          *panner = NULL;
+
+
+    system = SystemInternal::getInstance();
+    if (system == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    panner = system->getPanner();
+    if (panner == NULL)
+    {
+        return SCE_HEATWAVE_API_ERROR;
+    }
+
+    res = panner->getDistanceModel(pnModel);
+    if (SCE_HEATWAVE_API_FAILED(res))
+    {
+        return res;
+    }
 
     return SCE_HEATWAVE_API_OK;
 }

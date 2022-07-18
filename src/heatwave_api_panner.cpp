@@ -84,10 +84,30 @@ namespace sce{
             pVector->fZ *= inverseLen;
         }
 
-        static float32_t _dotProduct(SceHwVector vIn1, SceHwVector vIn2)
+        static inline float32_t _dotProduct(SceHwVector vIn1, SceHwVector vIn2)
         {
             const float32_t result = (vIn1.fX * vIn2.fX + vIn1.fY * vIn2.fY + vIn1.fZ * vIn2.fZ);
             return result;
+        }
+
+        static inline float32_t _minf(float32_t a, float32_t b)
+        {
+            return ((a > b) ? b : a);
+        }
+
+        static inline float32_t _maxf(float32_t a, float32_t b)
+        {
+            return ((a > b) ? a : b);
+        }
+
+        static inline float32_t _clampf(float32_t val, float32_t min, float32_t max)
+        {
+            return _minf(max, _maxf(min, val));
+        }
+
+        static inline float32_t _lerpf(float32_t val1, float32_t val2, float32_t mu)
+        {
+            return val1 + (val2 - val1)*mu;
         }
 
         /**
@@ -271,6 +291,12 @@ namespace sce{
             m_up.fX = 0.0f;
             m_up.fY = 1.0f;
             m_up.fZ = 0.0f;
+
+            m_dopplerFactor = 1.0f;
+            m_speedOfSound = 343.3f;
+            m_gain = 1.0f;
+
+            m_distanceModel = SCE_HEATWAVE_API_DISTANCE_MODEL_INVERSE_CLAMPED;
         }
 
         Panner::~Panner()
@@ -305,7 +331,7 @@ namespace sce{
             SceHwError  res = SCE_HEATWAVE_API_OK;
             float32_t   listenerspeedSq = 0.0f;
 
-            const float32_t kSpeedOfSoundSq = kfSpeedOfSound * kfSpeedOfSound;
+            const float32_t kSpeedOfSoundSq = m_speedOfSound * m_speedOfSound;
 
             res = isVectorFinite(vVelocity);
             if (SCE_HEATWAVE_API_FAILED(res))
@@ -375,6 +401,111 @@ namespace sce{
             m_forward.fZ = vForward.fZ;
 
             return res;
+        }
+
+        SceHwError Panner::setDopplerFactor(float32_t fFactor)
+        {
+            if (fFactor < 0.0f)
+            {
+                return SCE_HEATWAVE_API_ERROR_PARAM;
+            }
+
+            m_dopplerFactor = fFactor;
+
+            return SCE_HEATWAVE_API_OK;
+        }
+
+        SceHwError Panner::getDopplerFactor(float32_t *pfFactor)
+        {
+            if (pfFactor == NULL)
+            {
+                return SCE_HEATWAVE_API_ERROR_PARAM;
+            }
+
+            *pfFactor = m_dopplerFactor;
+
+            return SCE_HEATWAVE_API_OK;
+        }
+
+        SceHwError Panner::setSpeedOfSound(float32_t fSpeed)
+        {
+            if (fSpeed < 0.0f)
+            {
+                return SCE_HEATWAVE_API_ERROR_PARAM;
+            }
+
+            m_speedOfSound = fSpeed;
+
+            return SCE_HEATWAVE_API_OK;
+        }
+
+        SceHwError Panner::getSpeedOfSound(float32_t *pfSpeed)
+        {
+            if (pfSpeed == NULL)
+            {
+                return SCE_HEATWAVE_API_ERROR_PARAM;
+            }
+
+            *pfSpeed = m_speedOfSound;
+
+            return SCE_HEATWAVE_API_OK;
+        }
+
+        SceHwError Panner::setListenerGain(float32_t fGain)
+        {
+            if (fGain < 0.0f)
+            {
+                return SCE_HEATWAVE_API_ERROR_PARAM;
+            }
+
+            m_gain = fGain;
+
+            return SCE_HEATWAVE_API_OK;
+        }
+
+        SceHwError Panner::getListenerGain(float32_t *pfGain)
+        {
+            if (pfGain == NULL)
+            {
+                return SCE_HEATWAVE_API_ERROR_PARAM;
+            }
+
+            *pfGain = m_gain;
+
+            return SCE_HEATWAVE_API_OK;
+        }
+
+        SceHwError Panner::setDistanceModel(int32_t nModel)
+        {
+            switch (nModel)
+            {
+            case SCE_HEATWAVE_API_DISTANCE_MODEL_INVERSE_CLAMPED:
+            case SCE_HEATWAVE_API_DISTANCE_MODEL_INVERSE:
+            case SCE_HEATWAVE_API_DISTANCE_MODEL_LINEAR_CLAMPED:
+            case SCE_HEATWAVE_API_DISTANCE_MODEL_LINEAR:
+            case SCE_HEATWAVE_API_DISTANCE_MODEL_EXPONENT_CLAMPED:
+            case SCE_HEATWAVE_API_DISTANCE_MODEL_EXPONENT:
+            case SCE_HEATWAVE_API_DISTANCE_MODEL_DISABLE:
+                break;
+            default:
+                return SCE_HEATWAVE_API_ERROR_PARAM;
+            }
+
+            m_distanceModel = nModel;
+
+            return SCE_HEATWAVE_API_OK;
+        }
+
+        SceHwError Panner::getDistanceModel(int32_t *pnModel)
+        {
+            if (pnModel == NULL)
+            {
+                return SCE_HEATWAVE_API_ERROR_PARAM;
+            }
+
+            *pnModel = m_distanceModel;
+
+            return SCE_HEATWAVE_API_OK;
         }
 
         /**
@@ -463,7 +594,7 @@ namespace sce{
             }
 
             /* Distance gain rolloff */
-            res = calcDistanceGain(position, pParams->fMinDistance, pParams->fMaxDistance, &flAttenuation);
+            res = calcDistanceGain(position, pParams->fMinDistance, pParams->fMaxDistance, pParams->fDistanceFactor, &flAttenuation);
             if (SCE_HEATWAVE_API_FAILED(res))
             {
                 return res;
@@ -491,7 +622,7 @@ namespace sce{
             }
 
             /* Apply distance and cone attenuation */
-            gain = 1.0f * flAttenuation;
+            gain = m_gain * flAttenuation;
             gain *= coneVolume;
 
             /* Fill out the volume matrix */
@@ -568,42 +699,83 @@ namespace sce{
         /**
         * @brief Calculate the inverse square attenuation for distances in the range [fMinDistance, fMaxDistance]
         */
-        SceHwError Panner::calcDistanceGain(SceHwVector vRelativePostion, float32_t fMinDistance, float32_t fMaxDistance, float32_t *pDistanceGainOut)
+        SceHwError Panner::calcDistanceGain(SceHwVector vRelativePostion, float32_t fMinDistance, float32_t fMaxDistance, float32_t fDistanceFactor, float32_t *pDistanceGainOut)
         {
             float32_t distance = 0.0f;
+            float32_t clampedDist = 0.0f;
             SceHwError res = SCE_HEATWAVE_API_OK;
 
-            res = isVectorFinite(vRelativePostion);
-            if (SCE_HEATWAVE_API_FAILED(res))
-            {
-                return res;
+            if (fDistanceFactor > 0.0f) {
+
+                res = isVectorFinite(vRelativePostion);
+                if (SCE_HEATWAVE_API_FAILED(res))
+                {
+                    return res;
+                }
+                if (pDistanceGainOut == NULL)
+                {
+                    return SCE_HEATWAVE_API_ERROR_PARAM;
+                }
+
+                distance = sqrtf(_dotProduct(vRelativePostion, vRelativePostion));
+                clampedDist = distance;
+
+                switch (m_distanceModel)
+                {
+                case SCE_HEATWAVE_API_DISTANCE_MODEL_INVERSE_CLAMPED:
+                    if (fMaxDistance < fMinDistance)
+                    {
+                        break;
+                    }
+                    clampedDist = _clampf(clampedDist, fMinDistance, fMaxDistance);
+                    /* fall-through */
+                case SCE_HEATWAVE_API_DISTANCE_MODEL_INVERSE:
+                    if (fMinDistance > 0.0f)
+                    {
+                        float32_t dist = _lerpf(fMinDistance, clampedDist, fDistanceFactor);
+                        if (dist > 0.0f)
+                        {
+                            *pDistanceGainOut = fMinDistance / dist;
+                        }
+                    }
+                    break;
+                case SCE_HEATWAVE_API_DISTANCE_MODEL_LINEAR_CLAMPED:
+                    if (fMaxDistance < fMinDistance)
+                    {
+                        break;
+                    }
+                    clampedDist = _clampf(clampedDist, fMinDistance, fMaxDistance);
+                    /* fall-through */
+                case SCE_HEATWAVE_API_DISTANCE_MODEL_LINEAR:
+                    if (fMaxDistance != fMinDistance)
+                    {
+                        float32_t attn = (clampedDist - fMinDistance) / (fMaxDistance - fMinDistance) * fDistanceFactor;
+                        *pDistanceGainOut = _maxf(1.0f - attn, 0.0f);
+                    }
+                    break;
+                case SCE_HEATWAVE_API_DISTANCE_MODEL_EXPONENT_CLAMPED:
+                    if (fMaxDistance < fMinDistance)
+                    {
+                        break;
+                    }
+                    clampedDist = _clampf(clampedDist, fMinDistance, fMaxDistance);
+                    /*fall-through*/
+                case SCE_HEATWAVE_API_DISTANCE_MODEL_EXPONENT:
+                    if (clampedDist > 0.0f && fMinDistance > 0.0f)
+                    {
+                        const float32_t dist_ratio = clampedDist / fMinDistance;
+                        *pDistanceGainOut = powf(dist_ratio, -fDistanceFactor);
+                    }
+                    break;
+                case SCE_HEATWAVE_API_DISTANCE_MODEL_DISABLE:
+                    break;
+                }
             }
-            if (fMinDistance < 0.0f)
+            else
             {
-                return SCE_HEATWAVE_API_ERROR_PARAM;
-            }
-            if (fMaxDistance < fMinDistance)
-            {
-                return SCE_HEATWAVE_API_ERROR_PARAM;
-            }
-            if (pDistanceGainOut == NULL)
-            {
-                return SCE_HEATWAVE_API_ERROR_PARAM;
+                *pDistanceGainOut = 1.0f;
             }
 
-            /* Distance rolloff - clamped inverse square */
-            distance = sqrtf(_dotProduct(vRelativePostion, vRelativePostion));
-
-            if (distance < fMinDistance) /* clamp */
-            {
-                distance = fMinDistance;
-            }
-            if (distance > fMaxDistance)
-            {
-                distance = fMaxDistance;
-            }
-
-            *pDistanceGainOut = fMinDistance / distance;
             return SCE_HEATWAVE_API_OK;
         }
 
@@ -613,32 +785,41 @@ namespace sce{
         SceHwError Panner::calcDopplerShift(SceHwVector vRelativePosition, SceHwVector vVelocity, float32_t *pDopplerShiftOut)
         {
             SceHwError res = SCE_HEATWAVE_API_OK;
-            float32_t fVr = 0.0f;
-            float32_t fVs = 0.0f;
-            SceHwVector sourceToListener = { -vRelativePosition.fX, -vRelativePosition.fY, -vRelativePosition.fZ }; ///< Direction of movement
 
-            res = isVectorFinite(vRelativePosition);
-            if (SCE_HEATWAVE_API_FAILED(res))
-            {
-                return res;
-            }
-            res = isVectorFinite(vVelocity);
-            if (SCE_HEATWAVE_API_FAILED(res))
-            {
-                return res;
-            }
             if (pDopplerShiftOut == NULL)
             {
                 return SCE_HEATWAVE_API_ERROR_PARAM;
             }
 
-            _normaliseVector(&sourceToListener);
+            if (m_dopplerFactor != 0.0f)
+            {
+                float32_t fVr = 0.0f;
+                float32_t fVs = 0.0f;
+                SceHwVector sourceToListener = { -vRelativePosition.fX, -vRelativePosition.fY, -vRelativePosition.fZ }; ///< Direction of movement
 
-            /* Doppler */
-            fVr = _dotProduct(m_velocity, sourceToListener);
-            fVs = _dotProduct(vVelocity, sourceToListener);
+                res = isVectorFinite(vRelativePosition);
+                if (SCE_HEATWAVE_API_FAILED(res))
+                {
+                    return res;
+                }
+                res = isVectorFinite(vVelocity);
+                if (SCE_HEATWAVE_API_FAILED(res))
+                {
+                    return res;
+                }
 
-            *pDopplerShiftOut = (kfSpeedOfSound - fVr) / (kfSpeedOfSound - fVs); /* Negated doppler calculation due to right hand coordinate system */
+                _normaliseVector(&sourceToListener);
+
+                /* Doppler */
+                fVr = _dotProduct(m_velocity, sourceToListener);
+                fVs = _dotProduct(vVelocity, sourceToListener);
+
+                *pDopplerShiftOut = m_dopplerFactor * ((m_speedOfSound - fVr) / (m_speedOfSound - fVs)); /* Negated doppler calculation due to right hand coordinate system */
+            }
+            else
+            {
+                *pDopplerShiftOut = 0.0f;
+            }
 
             return SCE_HEATWAVE_API_OK;
         }

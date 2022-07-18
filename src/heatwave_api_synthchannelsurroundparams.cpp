@@ -44,6 +44,8 @@ namespace sce{
             bListenerRelative = false;
 
             nPriority = knSfxAudio3dPriorityMin;
+
+            fDistanceFactor = 1.0f;
         }
 
     } /* HeatWave */
