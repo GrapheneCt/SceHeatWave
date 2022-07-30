@@ -1,3 +1,4 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Platforms\PSVita\Microsoft.CppBuild.PSVita.targets(85,5): warning MSB8004: каталог Intermediate заканчивается не косой чертой.  Этот экземпляр сборки добавит косую черту, поскольку она необходима для правильного определения каталога Intermediate.
-  heatwave_api_mp3codec.cpp
+  heatwave_api_decoder_at9_psvita.cpp
+  heatwave_api_decoder_mp3_psvita.cpp
   heatwave_api.vcxproj -> D:\psp2proj\SceHeatWave\proj\..\lib\shared\PSVita\libSceHeatWave.a

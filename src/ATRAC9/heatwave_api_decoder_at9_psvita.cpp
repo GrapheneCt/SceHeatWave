@@ -8,7 +8,6 @@
 
 #include <sceerror.h>
 #include <ngs.h>
-#include <stdio.h>
 #include "heatwave_api_ringbuffer.h"
 
 #pragma comment(lib, "libSceAudiodec_stub.a")
@@ -164,7 +163,6 @@ namespace sce{
             {
                 int e = 0;
                 sceAudiodecGetInternalError(&m_ctrl, &e);
-                printf("decode 0x%X\n", e);
                 return SCE_HEATWAVE_API_ERROR;
             }
 
@@ -232,9 +230,7 @@ namespace sce{
             uint32_t offsetInPcmSamples = (uint32_t)((float)uTime * ((float)m_info.at9.samplingRate / kfSecsToMs));
             MemoryHandler::memcpyCb(&configData, m_info.at9.configData, sizeof(m_info.at9.configData));
 
-            printf("in: %u\n", uTime);
             res = sceNgsAT9GetSectionDetails(offsetInPcmSamples, 1, configData, &info);
-            printf("res: 0x%X\n", info.nStartByteOffset);
             if (res != SCE_NGS_OK)
             {
                 return SCE_HEATWAVE_API_ERROR_PARAM;
