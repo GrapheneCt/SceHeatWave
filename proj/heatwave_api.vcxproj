@@ -534,12 +534,24 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PSVita'">
     <TargetName>libSceHeatWaveD</TargetName>
+    <OutDir>$(ProjectDir)..\lib\shared\$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)..\lib\shared\$(Platform)\Interm</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|PSVita'">
     <TargetName>libSceHeatWave</TargetName>
+    <OutDir>$(ProjectDir)..\lib\shared\$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)..\lib\shared\$(Platform)\Interm</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Platform)'=='PS3' and $(Configuration.Contains('Dynamic'))">
     <PrxModuleName>$(TargetName)</PrxModuleName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDynamic|PSVita'">
+    <TargetName>libSceHeatWaveD</TargetName>
+    <IntDir>$(ProjectDir)..\lib\shared\$(Platform)\Interm</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDynamic|PSVita'">
+    <TargetName>libSceHeatWave</TargetName>
+    <IntDir>$(ProjectDir)..\lib\shared\$(Platform)\Interm</IntDir>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>

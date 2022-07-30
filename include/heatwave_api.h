@@ -1095,6 +1095,12 @@ SCE_HEATWAVE_FUNC SceHwError sceHeatWaveGetDistanceModel(int32_t *pnModel);
 */
 SCE_HEATWAVE_FUNC SceHwError sceHeatWaveGetDopplerFactor(float32_t *pfDopplerFactor);
 
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSfxBufferSetBufferMode(SceHwSfx hSfxHandle);
+
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSfxBufferPush(SceHwSfx hSfxHandle, void *pData, uint32_t uDataSizeBytes);
+
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSfxBufferTryPop(SceHwSfx hSfxHandle, void **ppData, uint32_t *puDataSizeBytes);
+
 
 #if defined(_LANGUAGE_C_PLUS_PLUS)||defined(__cplusplus)||defined(c_plusplus)
 }

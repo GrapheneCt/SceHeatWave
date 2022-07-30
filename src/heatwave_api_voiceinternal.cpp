@@ -193,7 +193,7 @@ namespace sce{
                 return false;
             }
 
-            while(it != m_availBuffers.end()) /* Queue the initial set of data */
+            while (it != m_availBuffers.end()) /* Queue the initial set of data */
             {
                 if (queueBuffer(*it))
                 {
@@ -849,6 +849,5 @@ namespace sce{
 
             return true;
         }
-
     } /* HeatWave */
 } /* sce */

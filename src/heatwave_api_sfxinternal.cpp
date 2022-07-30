@@ -804,6 +804,5 @@ namespace sce{
 
             return res;
         }
-
     } /* HeatWave */
 } /* sce */

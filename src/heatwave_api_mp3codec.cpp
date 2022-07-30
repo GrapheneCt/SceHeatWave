@@ -312,19 +312,6 @@ namespace sce{
         {
             SceHwError res = SCE_HEATWAVE_API_OK;
 
-            res = isMp3Format(m_dataSource);
-            if (SCE_HEATWAVE_API_FAILED(res))
-            {
-                return res;
-            }
-
-            /* Setup the platform specific decoder */
-            m_decoder = DecoderMp3::createMp3DecoderInstance();
-            if (m_decoder == NULL)
-            {
-                return SCE_HEATWAVE_API_ERROR_OUT_OF_ASSETS;
-            }
-
             /* buffer to allow cache friendly reads from m_dataSource */
             m_buffer.pData = (char*)sce::HeatWave::MemoryHandler::mallocCb(kuDataBlockSize);
             if (m_buffer.pData == NULL)
@@ -332,6 +319,12 @@ namespace sce{
                 return SCE_HEATWAVE_API_ERROR_OUT_OF_ASSETS;
             }
             m_buffer.uSizeBytes = kuDataBlockSize;
+
+            res = isMp3Format(m_dataSource);
+            if (SCE_HEATWAVE_API_FAILED(res))
+            {
+                return res;
+            }
 
             res = parseMp3Header(&m_buffer, &m_header);
             if (SCE_HEATWAVE_API_FAILED(res))
@@ -341,23 +334,6 @@ namespace sce{
 
             if (!DecoderMp3::isAvailable(m_header.numChannels))
                 return SCE_HEATWAVE_API_ERROR_OUT_OF_ASSETS;
-
-            res = m_decoder->init(&m_header, m_dataSource);
-            if (SCE_HEATWAVE_API_FAILED(res))
-            {
-                return res;
-            }
-
-            if (m_decoder->getType() == DecoderMp3::ePull)
-            {
-                MemoryHandler::freeCb(m_buffer.pData); /* decoder will be handling access of the data */
-                m_buffer.pData = NULL;
-                m_buffer.uSizeBytes = 0;
-            }
-            else if (m_decoder->getType() == DecoderMp3::ePushPull)
-            {
-                m_ringBuffer = new RingBuffer(kuDataBlockSize); /* so we can read in cache friendly blocks from the data source */
-            }
 
             return SCE_HEATWAVE_API_OK;
         }
