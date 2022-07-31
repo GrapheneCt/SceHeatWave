@@ -142,6 +142,7 @@ namespace sce{
         m_dataSectionByteOffset(0),
         m_dataSectionByteSize(0),
         m_decoder(NULL),
+        m_ringBuffer(NULL),
         m_configData(0)
         {
         }
