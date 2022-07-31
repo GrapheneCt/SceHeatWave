@@ -146,6 +146,27 @@ namespace sce{
         {
         }
 
+        At9Codec::~At9Codec()
+        {
+            if (m_decoder != NULL)
+            {
+                delete m_decoder;
+                m_decoder = NULL;
+            }
+
+            if (m_buffer.pData != NULL)
+            {
+                MemoryHandler::freeCb(m_buffer.pData);
+                m_buffer.pData = NULL;
+            }
+
+            if (m_ringBuffer != NULL)
+            {
+                delete m_ringBuffer;
+                m_ringBuffer = NULL;
+            }
+        }
+
         /**
         * @brief Extract information about the audio data and setup for reading from the 'data' section
         */

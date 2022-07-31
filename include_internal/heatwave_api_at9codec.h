@@ -27,6 +27,7 @@ namespace sce{
         {
         public:
             At9Codec(DataSource *pSource);
+			virtual ~At9Codec();
 
         protected:
             static const uint32_t kuDataBlockSize = 4 * 1024;
