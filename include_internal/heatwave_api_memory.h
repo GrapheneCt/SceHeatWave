@@ -38,6 +38,8 @@ namespace sce{
             * @brief Custom memory handlers so that we can hook in user supplied versions
             */
             static void* mallocCb(size_t pSize);
+            static void* reallocCb(void *pMem, size_t pSize);
+            static void* callocCb(size_t pNum, size_t pSize);
             static void* memalignCb(size_t pAlign, size_t pSize);
             static void  freeCb(void* pMem);
 

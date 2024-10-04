@@ -44,7 +44,7 @@ namespace sce{
             virtual int32_t close() = 0;
 
             virtual uint32_t tell() = 0;
-            virtual int32_t seek(uint32_t uOffset, int32_t nOrigin) = 0;
+            virtual int32_t seek(int32_t uOffset, int32_t nOrigin) = 0;
             virtual uint32_t read(void* pBuffer, uint32_t uSize, uint32_t uCount) = 0;
         };
 
@@ -63,7 +63,7 @@ namespace sce{
             bool open(const char *strFileName);
 
             uint32_t tell();
-            int32_t seek(uint32_t uOffset, int32_t nOrigin);
+            int32_t seek(int32_t uOffset, int32_t nOrigin);
             uint32_t read(void* pBuffer, uint32_t uSize, uint32_t uCount);
 
             int32_t close();
@@ -86,7 +86,7 @@ namespace sce{
             bool open(char *pBuffer, uint32_t uBufferLen);
 
             uint32_t tell();
-            int32_t seek(uint32_t uOffset, int32_t nOrigin);
+            int32_t seek(int32_t uOffset, int32_t nOrigin);
             uint32_t read(void* pBuffer, uint32_t uSize, uint32_t uCount);
 
             int32_t close();

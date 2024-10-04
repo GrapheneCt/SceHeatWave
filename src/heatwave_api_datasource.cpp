@@ -76,7 +76,7 @@ namespace sce{
             return FileHandler::tell(m_fileHandle);
         }
 
-        int32_t FileSource::seek(uint32_t uOffset, int32_t nOrigin)
+        int32_t FileSource::seek(int32_t uOffset, int32_t nOrigin)
         {
             return FileHandler::seek(m_fileHandle, uOffset, nOrigin);
         }
@@ -166,7 +166,7 @@ namespace sce{
             return m_offset;
         }
 
-        int32_t MemorySource::seek(uint32_t uOffset, int32_t nOrigin)
+        int32_t MemorySource::seek(int32_t uOffset, int32_t nOrigin)
         {
             uint32_t newOffset = 0;
 

@@ -11,6 +11,7 @@
 #include "heatwave_api_mp3codec.h"
 #include "heatwave_api_at9codec.h"
 #include "heatwave_api_adpcmcodec.h"
+#include "heatwave_api_oggcodec.h"
 #include "heatwave_api.h"
 
 namespace sce{
@@ -49,6 +50,10 @@ namespace sce{
             else if (SCE_HEATWAVE_API_SUCCEEDED(Mp3Codec::isMp3Format(pDataSource))) /* MP3 */
             {
                 stream = new Mp3Codec(pDataSource);
+            }
+            else if (SCE_HEATWAVE_API_SUCCEEDED(OggCodec::isOggFormat(pDataSource))) /* OGG Vorbis */
+            {
+                stream = new OggCodec(pDataSource);
             }
 #if defined __psp2__
             else if (_sceHeatWaveIsAdpcmFormat(pDataSource)) /* ADPCM */

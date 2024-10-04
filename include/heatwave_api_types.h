@@ -320,6 +320,10 @@ typedef struct SceHwSourceRuntimeStreamParam
 */
 typedef void* (*SceHwMemoryAlloc)(size_t size);
 
+typedef void* (*SceHwMemoryRealloc)(void *ptr, size_t size);
+
+typedef void* (*SceHwMemoryCalloc)(size_t num, size_t size);
+
 /**
 * @brief Defines an aligned memory allocation function.
 *
@@ -352,6 +356,8 @@ typedef void  (*SceHwMemoryFree)(void* ptr);
 typedef struct SceHwMemoryFunctions
 {
     SceHwMemoryAlloc        pAlloc;         ///< A user defined memory allocation function.
+    SceHwMemoryRealloc      pRealloc;       ///< A user defined memory reallocation function.
+    SceHwMemoryCalloc       pCalloc;        ///< A user defined memory allocation function with memset to 0.
     SceHwMemoryAlignAlloc   pAlignedAlloc;  ///< A user defined aligned memory allocation function.
     SceHwMemoryFree         pFree;          ///< A user defined memory freeing function.
 } SceHwMemoryFunctions;

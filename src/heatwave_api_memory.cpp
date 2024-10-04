@@ -6,6 +6,7 @@
 
 #include "heatwave_api_memory.h"
 #include <string.h>
+#include <stdio.h>
 
 namespace sce{
     namespace HeatWave{
@@ -61,6 +62,24 @@ namespace sce{
                 return MemoryHandler::s_userOverrides.pAlloc(pSize);
             }
             return malloc(pSize);
+        }
+
+        void* MemoryHandler::reallocCb(void *pMem, size_t pSize)
+        {
+            if (MemoryHandler::s_userOverrides.pRealloc)
+            {
+                return MemoryHandler::s_userOverrides.pRealloc(pMem, pSize);
+            }
+            return realloc(pMem, pSize);
+        }
+
+        void* MemoryHandler::callocCb(size_t pNum, size_t pSize)
+        {
+            if (MemoryHandler::s_userOverrides.pCalloc)
+            {
+                return MemoryHandler::s_userOverrides.pCalloc(pNum, pSize);
+            }
+            return calloc(pNum, pSize);
         }
 
         void* MemoryHandler::memalignCb(size_t nAlign, size_t nSize)

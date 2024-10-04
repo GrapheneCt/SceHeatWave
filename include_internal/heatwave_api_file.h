@@ -25,7 +25,7 @@ namespace sce{
             static void* open(const char* strFilePath);
             static int32_t close(void* pStream);
 
-            static int32_t seek(void *pStream, uint32_t uOffset, int32_t nOrigin);
+            static int32_t seek(void *pStream, int32_t uOffset, int32_t nOrigin);
             static int32_t tell(void* pStream);
 
             static uint32_t read(void* pPtr, uint32_t uSize, uint32_t uCount, void* pStream);

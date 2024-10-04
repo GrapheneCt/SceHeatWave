@@ -197,6 +197,9 @@
     <ClCompile Include="..\src\ATRAC9\heatwave_api_decoder_at9_psvita.cpp">
       <Filter>Source Files\ATRAC9</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_oggcodec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\heatwave_api.h">
@@ -332,6 +335,9 @@
       <Filter>Header Files\internal\ATRAC9</Filter>
     </ClInclude>
     <ClInclude Include="..\include_internal\heatwave_api_adpcmcodec.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_oggcodec.h">
       <Filter>Header Files\internal</Filter>
     </ClInclude>
   </ItemGroup>

@@ -55,7 +55,7 @@ namespace sce{
             return fclose(stream);
         }
 
-        int32_t FileHandler::seek(void *pStream, uint32_t uOffset, int32_t nOrigin)
+        int32_t FileHandler::seek(void *pStream, int32_t uOffset, int32_t nOrigin)
         {
             FILE *stream = NULL;
 
