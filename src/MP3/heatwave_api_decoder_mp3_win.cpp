@@ -143,12 +143,15 @@ namespace sce{
             hr = pSample->ConvertToContiguousBuffer(&pMediaBuffer);
             if (FAILED(hr)) 
             { 
+                pSample->Release();
                 return SCE_HEATWAVE_API_ERROR_INVALID_OPERATION;
             }
 
             hr = pMediaBuffer->Lock(&pAudioData, NULL, &cbBuffer);
             if (FAILED(hr)) 
             { 
+                pMediaBuffer->Release();
+                pSample->Release();
                 return SCE_HEATWAVE_API_ERROR_INVALID_OPERATION;
             }
 
@@ -170,6 +173,9 @@ namespace sce{
             // Unlock the buffer.
             hr = pMediaBuffer->Unlock();
             pAudioData = NULL;
+
+            SafeRelease(&pMediaBuffer);
+            SafeRelease(&pSample);
 
             return SCE_HEATWAVE_API_OK;
         }

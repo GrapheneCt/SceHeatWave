@@ -54,6 +54,9 @@
     <Filter Include="Source Files\ATRAC9">
       <UniqueIdentifier>{8b53871a-4613-48be-a65a-4b4872feb65a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\External">
+      <UniqueIdentifier>{ac770b5b-ba32-4bfe-a3f7-e656a8d411f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\heatwave_api_audiocodec.cpp">
@@ -199,6 +202,9 @@
     </ClCompile>
     <ClCompile Include="..\src\heatwave_api_oggcodec.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\lib\stb_vorbis.c">
+      <Filter>Source Files\External</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
