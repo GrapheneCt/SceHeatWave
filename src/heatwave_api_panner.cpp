@@ -587,6 +587,23 @@ namespace sce{
             }
             /* end of parameter checks! */
 
+            if (pParams->bIs2d)
+            {
+                for (uint32_t i = 0; i < uNumVolumes; i++)
+                {
+                    pVolumeMatrixOut[i] = 0.0f;
+                }
+
+                /* equal-power panning */
+                pVolumeMatrixOut[Speaker_FL] = cosf((float)(SCE_HEATWAVE_API_PI / 4.0f) * (1.0f + position.fX));
+                pVolumeMatrixOut[Speaker_FR] = sinf((float)(SCE_HEATWAVE_API_PI / 4.0f) * (1.0f + position.fX));
+
+                *pDopplerShiftOut = dopplerShift;
+                *pLowPassOut = coneLowpass;
+
+                return SCE_HEATWAVE_API_OK;
+            }
+
             /* translate to listener relative position */
             if (!pParams->bListenerRelative)
             {

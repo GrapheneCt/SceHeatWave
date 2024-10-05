@@ -42,6 +42,7 @@ namespace sce{
             fOutsideFreq    = kfDefaultEmitterFreq;
 
             bListenerRelative = false;
+            bIs2d             = false;
 
             nPriority = knSfxAudio3dPriorityMin;
 

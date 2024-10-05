@@ -297,6 +297,14 @@ namespace sce{
             return SCE_HEATWAVE_API_OK;
         }
 
+        SceHwError SynthChannel::setAs2D(bool bIs2d)
+        {
+            m_surroundParams.bIs2d = bIs2d;
+            flagSurroundParamsAsDirty();
+
+            return SCE_HEATWAVE_API_OK;
+        }
+
         SceHwError SynthChannel::updateParameters()
         {
             SceHwError res = SCE_HEATWAVE_API_OK;

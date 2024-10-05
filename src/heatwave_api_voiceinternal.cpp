@@ -525,6 +525,12 @@ namespace sce{
                 return res;
             }
 
+            res = m_channel->setAs2D(true);
+            if (SCE_HEATWAVE_API_FAILED(res))
+            {
+                return res;
+            }
+
             res = m_channel->setPosition(position);
             if (SCE_HEATWAVE_API_FAILED(res))
             {

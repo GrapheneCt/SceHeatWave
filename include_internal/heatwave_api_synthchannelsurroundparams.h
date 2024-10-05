@@ -39,6 +39,7 @@ namespace sce{
             bool        bListenerRelative;  ///< Is the position relative to the listener position
             int32_t     nPriority;          ///< Priority used for playback (libAudio3d)
             float32_t   fDistanceFactor;    ///< Distance volume attenuation factor
+            bool		bIs2d;
         };
 
     } /* HeatWave */

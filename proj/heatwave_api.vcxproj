@@ -163,7 +163,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\external\lib\stb_vorbis.c" />
     <ClCompile Include="..\src\ATRAC9\heatwave_api_decoder_at9.cpp" />
     <ClCompile Include="..\src\ATRAC9\heatwave_api_decoder_at9_psvita.cpp">
       <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>

@@ -21,6 +21,7 @@ namespace sce{
             m_loopCount(0),
             m_minDistance(1.0f),
             m_maxDistance(FLT_MAX),
+            m_distanceFactor(1.0f),
             m_insideAngle(0.0f),
             m_outsideAngle(360.0f),
             m_outsideGain(1.0f),

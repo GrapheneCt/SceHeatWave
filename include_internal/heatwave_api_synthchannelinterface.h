@@ -103,6 +103,8 @@ namespace sce{
 
             virtual SceHwError setAsRelative(bool bRelativeToListener);
 
+            virtual SceHwError setAs2D(bool bIs2d);
+
             virtual SceHwError updateParameters();
 
             static const uint32_t kuMaxChannels = 2;
