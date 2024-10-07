@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
-* HeatWave 1.44
+* HeatWave 1.5
 * Copyright (C) 2017 Sony Interactive Entertainment Inc.
 * All Rights Reserved.
 */
@@ -13,6 +13,8 @@
 
 #ifndef _SCE_HEATWAVE_API_OGG_CODEC_H_
 #define _SCE_HEATWAVE_API_OGG_CODEC_H_
+
+#if defined SCE_HEATWAVE_CODEC_OGG
 
 #include <vorbis/codec.h>
 #include <vorbis/vorbisfile.h>
@@ -50,5 +52,7 @@ namespace sce{
 
     } /* HeatWave */
 } /* sce */
+
+#endif /* SCE_HEATWAVE_CODEC_OGG */
 
 #endif /* _SCE_HEATWAVE_API_OGG_CODEC_H_ */

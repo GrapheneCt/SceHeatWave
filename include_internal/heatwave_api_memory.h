@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
- * HeatWave 1.44
+ * HeatWave 1.5
  * Copyright (C) 2017 Sony Interactive Entertainment Inc.
  * All Rights Reserved.
  */
@@ -46,6 +46,8 @@ namespace sce{
             static void  memsetCb(void* pMem, int32_t pVal, size_t pSize);
 
             static void* memcpyCb(void* pDest, void* pSource, size_t pSize);
+
+            static void* memmoveCb(void* pDest, void* pSource, size_t pSize);
 
             /**
             * @brief User overrides for mallocCb\freeCb

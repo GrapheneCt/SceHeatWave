@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
- * HeatWave 1.44
+ * HeatWave 1.5
  * Copyright (C) 2017 Sony Interactive Entertainment Inc.
  * All Rights Reserved.
  */
@@ -115,6 +115,11 @@ namespace sce{
         void* MemoryHandler::memcpyCb(void* pDest, void* pSource, size_t pSize)
         {
             return memcpy(pDest, pSource, pSize);
+        }
+
+        void* MemoryHandler::memmoveCb(void* pDest, void* pSource, size_t pSize)
+        {
+            return memmove(pDest, pSource, pSize);
         }
 
     } /* HeatWave */

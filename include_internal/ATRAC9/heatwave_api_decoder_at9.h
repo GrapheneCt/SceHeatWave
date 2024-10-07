@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
-* HeatWave 1.44
+* HeatWave 1.5
 * Copyright (C) 2017 Sony Interactive Entertainment Inc.
 * All Rights Reserved.
 */
@@ -13,6 +13,8 @@
 
 #ifndef _SCE_HEATWAVE_DECODER_AT9_H_
 #define _SCE_HEATWAVE_DECODER_AT9_H_
+
+#if defined SCE_HEATWAVE_CODEC_AT9
 
 #include "heatwave_api_errors.h"
 #include "heatwave_api_types.h"
@@ -75,5 +77,7 @@ namespace sce{
 
     } /* sce */
 } /* HeatWave */
+
+#endif /* SCE_HEATWAVE_CODEC_AT9 */
 
 #endif /* _SCE_HEATWAVE_DECODER_AT9_H_ */

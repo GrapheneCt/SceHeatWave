@@ -1,8 +1,10 @@
 ﻿/* SIE CONFIDENTIAL
-* HeatWave 1.44
+* HeatWave 1.5
 * Copyright (C) 2017 Sony Interactive Entertainment Inc.
 * All Rights Reserved.
 */
+
+#if defined SCE_HEATWAVE_CODEC_OGG
 
 #include <vorbis/codec.h>
 #include <vorbis/vorbisfile.h>
@@ -46,6 +48,21 @@ extern "C"
     void _ogg_free(void *ptr)
     {
         sce::HeatWave::MemoryHandler::freeCb(ptr);
+    }
+
+    void *_ogg_memcpy(void *dst, void *src, size_t size)
+    {
+        return sce::HeatWave::MemoryHandler::memcpyCb(dst, src, size);
+    }
+
+    void _ogg_memset(void *mem, int32_t val, size_t size)
+    {
+        sce::HeatWave::MemoryHandler::memsetCb(mem, val, size);
+    }
+
+    void *_ogg_memmove(void *dst, void *src, size_t size)
+    {
+        return sce::HeatWave::MemoryHandler::memmoveCb(dst, src, size);
     }
 }
 
@@ -240,3 +257,5 @@ namespace sce{
 
     } /* HeatWave */
 } /* sce */
+
+#endif /* SCE_HEATWAVE_CODEC_OGG */

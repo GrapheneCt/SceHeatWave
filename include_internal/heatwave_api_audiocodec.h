@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
-* HeatWave 1.44
+* HeatWave 1.5
 * Copyright (C) 2017 Sony Interactive Entertainment Inc.
 * All Rights Reserved.
 */
@@ -31,6 +31,7 @@ namespace sce{
         {
         public:
             static SceHwError createAudioCodec(DataSource *pDataSource, AudioCodec **ppStreamOut); ///< Factory
+            static SceHwError validAudioCodec(DataSource *pDataSource);
             virtual ~AudioCodec();
             void release();
 

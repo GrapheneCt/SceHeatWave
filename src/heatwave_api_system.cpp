@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
- * HeatWave 1.44
+ * HeatWave 1.5
  * Copyright (C) 2017 Sony Interactive Entertainment Inc.
  * All Rights Reserved.
  */
@@ -174,6 +174,7 @@ SceHwError sceHeatWaveInit(SceHwInitParams *pParams)
         return SCE_HEATWAVE_API_ERROR_OUT_OF_ASSETS;
     }
 
+#if defined SCE_HEATWAVE_CODEC_MP3
 #if defined __psp2__
     res = DecoderMp3::loadCodecLibraries(pParams->nMaxChannelNumMp3);
 #else
@@ -185,7 +186,9 @@ SceHwError sceHeatWaveInit(SceHwInitParams *pParams)
         sceHeatWaveRelease();
         return res;
     }
+#endif /* SCE_HEATWAVE_CODEC_MP3 */
 
+#if defined SCE_HEATWAVE_CODEC_AT9
 #if defined __psp2__
     res = DecoderAt9::loadCodecLibraries(pParams->nMaxChannelNumAt9);
     if (SCE_HEATWAVE_API_FAILED(res))
@@ -195,6 +198,7 @@ SceHwError sceHeatWaveInit(SceHwInitParams *pParams)
         return res;
     }
 #endif
+#endif /* SCE_HEATWAVE_CODEC_AT9 */
 
     /* Default listener to centre */
     sceHeatWaveSetListener(zero, zero, forward, up, 1.0f);
@@ -226,10 +230,14 @@ SceHwError sceHeatWaveRelease(void)
 
     delete systemInternal;
 
+#if defined SCE_HEATWAVE_CODEC_MP3
     DecoderMp3::unloadCodecLibraries();
+#endif /* SCE_HEATWAVE_CODEC_MP3 */
+#if defined SCE_HEATWAVE_CODEC_AT9
 #if defined __psp2__
     DecoderAt9::unloadCodecLibraries();
 #endif
+#endif /* SCE_HEATWAVE_CODEC_AT9 */
 
     /* Must be last - all release related code needs to pass through the custom overrides before we clear them */
     FileHandler::s_userOverrides.pOpen  = NULL;
@@ -336,6 +344,22 @@ SceHwError sceHeatWaveGetInfo(SceHwInfo *pInfoOut)
     pInfoOut->bSupportedPorts[SCE_HEATWAVE_API_OUTPUT_PAD_3]   = pSynth->isPortSupported(SCE_HEATWAVE_API_OUTPUT_PAD_3);
     pInfoOut->bSupportedPorts[SCE_HEATWAVE_API_OUTPUT_PAD_4]   = pSynth->isPortSupported(SCE_HEATWAVE_API_OUTPUT_PAD_4);
     pInfoOut->bSupportedPorts[SCE_HEATWAVE_API_OUTPUT_AUDIO3D] = pSynth->isPortSupported(SCE_HEATWAVE_API_OUTPUT_AUDIO3D);
+
+#if defined SCE_HEATWAVE_CODEC_MP3
+    pInfoOut->bMp3Support = true;
+#endif /* SCE_HEATWAVE_CODEC_MP3 */
+#if defined SCE_HEATWAVE_CODEC_OGG
+    pInfoOut->bOggSupport = true;
+#endif /* SCE_HEATWAVE_CODEC_OGG */
+#if defined SCE_HEATWAVE_CODEC_AT9
+    pInfoOut->bAt9Support = true;
+#endif /* SCE_HEATWAVE_CODEC_AT9 */
+#if defined SCE_HEATWAVE_CODEC_HEVAG
+    pInfoOut->bHevagSupport = true;
+#endif /* SCE_HEATWAVE_CODEC_HEVAG */
+#if defined SCE_HEATWAVE_CODEC_OPUS
+    pInfoOut->bOpusSupport = true;
+#endif /* SCE_HEATWAVE_CODEC_OPUS */
 
     return SCE_HEATWAVE_API_OK;
 }

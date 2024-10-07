@@ -1,8 +1,10 @@
 ﻿/* SIE CONFIDENTIAL
-* HeatWave 1.44
+* HeatWave 1.5
 * Copyright (C) 2017 Sony Interactive Entertainment Inc.
 * All Rights Reserved.
 */
+
+#if defined SCE_HEATWAVE_CODEC_HEVAG
 
 #include "heatwave_api_adpcmcodec.h"
 
@@ -113,7 +115,9 @@ namespace sce{
             uint32_t kuByteOffset = (16 * kuSampleOffset) / 28;
             kuByteOffset = ((kuByteOffset)+((16) - 1)) & ~((16) - 1); // Align to 16 (ADPCM block size)
             if ((kuByteOffset / 16) % 2 != 0) // Prevent channel swapping due to block interleaving
+            {
                 kuByteOffset = kuByteOffset - 16;
+            }
             const uint32_t kuFilepos = m_dataSectionByteOffset + kuByteOffset; // Offset within the data section.
 
             if (kuByteOffset > m_dataSectionByteSize)
@@ -150,3 +154,5 @@ namespace sce{
 
     } /* HeatWave */
 } /* sce */
+
+#endif /* SCE_HEATWAVE_CODEC_HEVAG */

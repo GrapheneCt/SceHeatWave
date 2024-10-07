@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
- * HeatWave 1.44
+ * HeatWave 1.5
  * Copyright (C) 2017 Sony Interactive Entertainment Inc.
  * All Rights Reserved.
  */
@@ -44,7 +44,7 @@ namespace sce{
                 return SCE_HEATWAVE_API_ERROR_OUT_OF_ASSETS;
             }
 
-            res = cloneInstance->init(m_dataSource);
+            res = cloneInstance->init(m_dataSource, false);
             if (SCE_HEATWAVE_API_FAILED(res))
             {
                 delete cloneInstance;
@@ -58,7 +58,7 @@ namespace sce{
         /**
         * @brief Initialise the file ready to be read from (detect file type, setup data offsets, etc)
         */
-        SceHwError AudioFileStream::init(const DataSource *pDataSource)
+        SceHwError AudioFileStream::init(const DataSource *pDataSource, bool bBasicInit)
         {
             SceHwError res = SCE_HEATWAVE_API_OK;
 
@@ -79,7 +79,14 @@ namespace sce{
                 return res;
             }
 
-            res = AudioCodec::createAudioCodec(m_dataSource, &m_codec); /* Use AudioCodec to get pcm data from the DataSource */
+            if (bBasicInit)
+            {
+                res = AudioCodec::validAudioCodec(m_dataSource); /* Use AudioCodec to validate data from the DataSource */
+            }
+            else
+            {
+                res = AudioCodec::createAudioCodec(m_dataSource, &m_codec); /* Use AudioCodec to get pcm data from the DataSource */
+            }
             if (SCE_HEATWAVE_API_FAILED(res))
             {
                 release();

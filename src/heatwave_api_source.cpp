@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
- * HeatWave 1.44
+ * HeatWave 1.5
  * Copyright (C) 2017 Sony Interactive Entertainment Inc.
  * All Rights Reserved.
  */
@@ -108,7 +108,7 @@ SceHwError sceHeatWaveSourceLoadFile(SceHwSource hSourceHandle, const char *strF
     }
 
     /* Check that the file is a format we can read, setup ready to read */
-    res = audioFile->init(filesource);
+    res = audioFile->init(filesource, true);
     delete filesource;
 
     if (SCE_HEATWAVE_API_FAILED(res))
@@ -205,7 +205,7 @@ SceHwError sceHeatWaveSourceLoadMemory(SceHwSource hSourceHandle, SceHwMemoryFil
     }
 
     /* Detect the type of the audio data (wav?) and setup ready to read */
-    res = audioFile->init(memsource);
+    res = audioFile->init(memsource, true);
     delete memsource;
 
     if (SCE_HEATWAVE_API_FAILED(res))

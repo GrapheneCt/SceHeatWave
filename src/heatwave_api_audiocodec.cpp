@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
-* HeatWave 1.44
+* HeatWave 1.5
 * Copyright (C) 2017 Sony Interactive Entertainment Inc.
 * All Rights Reserved.
 */
@@ -12,6 +12,7 @@
 #include "heatwave_api_at9codec.h"
 #include "heatwave_api_adpcmcodec.h"
 #include "heatwave_api_oggcodec.h"
+#include "heatwave_api_opuscodec.h"
 #include "heatwave_api.h"
 
 namespace sce{
@@ -36,6 +37,7 @@ namespace sce{
             
             if (_sceHeatWaveIsWaveFormat(pDataSource))  /* WAV */
             {
+#if defined SCE_HEATWAVE_CODEC_AT9
 #if defined __psp2__
                 if (_sceHeatWaveIsAt9Format(pDataSource)) /* ATRAC9 */
                 {
@@ -43,24 +45,37 @@ namespace sce{
                 }
                 else
 #endif
+#endif /* SCE_HEATWAVE_CODEC_AT9 */
                 {
                     stream = new WavCodec(pDataSource);
                 }
             }
+#if defined SCE_HEATWAVE_CODEC_MP3
             else if (SCE_HEATWAVE_API_SUCCEEDED(Mp3Codec::isMp3Format(pDataSource))) /* MP3 */
             {
                 stream = new Mp3Codec(pDataSource);
             }
+#endif /* SCE_HEATWAVE_CODEC_MP3 */
+#if defined SCE_HEATWAVE_CODEC_OGG
             else if (SCE_HEATWAVE_API_SUCCEEDED(OggCodec::isOggFormat(pDataSource))) /* OGG Vorbis */
             {
                 stream = new OggCodec(pDataSource);
             }
+#endif /* SCE_HEATWAVE_CODEC_OGG */
+#if defined SCE_HEATWAVE_CODEC_OPUS
+            else if (SCE_HEATWAVE_API_SUCCEEDED(OpusCodec::isOpusFormat(pDataSource))) /* OPUS */
+            {
+                stream = new OpusCodec(pDataSource);
+            }
+#endif /* SCE_HEATWAVE_CODEC_OPUS */
+#if defined SCE_HEATWAVE_CODEC_HEVAG
 #if defined __psp2__
             else if (_sceHeatWaveIsAdpcmFormat(pDataSource)) /* ADPCM */
             {
                 stream = new AdpcmCodec(pDataSource);
             }
 #endif
+#endif /* SCE_HEATWAVE_CODEC_HEVAG */
             else
             {
                 return SCE_HEATWAVE_API_ERROR_UNSUPPORTED_FORMAT;
@@ -82,6 +97,52 @@ namespace sce{
 
             *ppStreamOut = stream;
             return SCE_HEATWAVE_API_OK;
+        }
+
+        /**
+        * @brief Check the format of pDataSource
+        */
+        SceHwError AudioCodec::validAudioCodec(DataSource *pDataSource)
+        {
+            SceHwError res = SCE_HEATWAVE_API_ERROR_UNSUPPORTED_FORMAT;
+
+            if (pDataSource == NULL)
+            {
+                return SCE_HEATWAVE_API_ERROR_PARAM;
+            }
+
+            if (_sceHeatWaveIsWaveFormat(pDataSource))  /* WAV */
+            {
+                res = SCE_HEATWAVE_API_OK;
+            }
+#if defined SCE_HEATWAVE_CODEC_MP3
+            else if (SCE_HEATWAVE_API_SUCCEEDED(Mp3Codec::isMp3Format(pDataSource))) /* MP3 */
+            {
+                res = SCE_HEATWAVE_API_OK;
+            }
+#endif /* SCE_HEATWAVE_CODEC_MP3 */
+#if defined SCE_HEATWAVE_CODEC_OGG
+            else if (SCE_HEATWAVE_API_SUCCEEDED(OggCodec::isOggFormat(pDataSource))) /* OGG Vorbis */
+            {
+                res = SCE_HEATWAVE_API_OK;
+            }
+#endif /* SCE_HEATWAVE_CODEC_OGG */
+#if defined SCE_HEATWAVE_CODEC_OPUS
+            else if (SCE_HEATWAVE_API_SUCCEEDED(OpusCodec::isOpusFormat(pDataSource))) /* OPUS */
+            {
+                res = SCE_HEATWAVE_API_OK;
+            }
+#endif /* SCE_HEATWAVE_CODEC_OPUS */
+#if defined SCE_HEATWAVE_CODEC_HEVAG
+#if defined __psp2__
+            else if (_sceHeatWaveIsAdpcmFormat(pDataSource)) /* ADPCM */
+            {
+                res = SCE_HEATWAVE_API_OK;
+            }
+#endif
+#endif /* SCE_HEATWAVE_CODEC_HEVAG */
+
+            return res;
         }
 
         AudioCodec::AudioCodec(DataSource *pSource)

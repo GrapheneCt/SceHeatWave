@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
- * HeatWave 1.44
+ * HeatWave 1.5
  * Copyright (C) 2017 Sony Interactive Entertainment Inc.
  * All Rights Reserved.
  */
@@ -31,6 +31,12 @@
 *           Add support to query the elapsed time of a playing SceHwSfx.
 *           Add seek support to SceHwSfx.
 *           Fix looping behaviour when SceHwSource of a looping SceHwSound have different loop counts. Note - this changes behaviour of looping sounds.
+*   1.5     Fix memory leak in MP3 decoder on Windows.
+*           Implement true 2D audio for eSource2d.
+*           Add distance model support.
+*           Add doppler factor support.
+*           Add OGG codec support.
+*           
 */
 
 #ifndef _SCE_HEATWAVE_API_H_
@@ -1094,13 +1100,6 @@ SCE_HEATWAVE_FUNC SceHwError sceHeatWaveGetDistanceModel(int32_t *pnModel);
 * @return   See <c>SCE_HEATWAVE_API_OK</c> and other return codes.
 */
 SCE_HEATWAVE_FUNC SceHwError sceHeatWaveGetDopplerFactor(float32_t *pfDopplerFactor);
-
-SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSfxBufferSetBufferMode(SceHwSfx hSfxHandle);
-
-SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSfxBufferPush(SceHwSfx hSfxHandle, void *pData, uint32_t uDataSizeBytes);
-
-SCE_HEATWAVE_FUNC SceHwError sceHeatWaveSfxBufferTryPop(SceHwSfx hSfxHandle, void **ppData, uint32_t *puDataSizeBytes);
-
 
 #if defined(_LANGUAGE_C_PLUS_PLUS)||defined(__cplusplus)||defined(c_plusplus)
 }

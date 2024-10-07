@@ -200,6 +200,9 @@
     <ClCompile Include="..\src\heatwave_api_oggcodec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_opuscodec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\heatwave_api.h">
@@ -338,6 +341,9 @@
       <Filter>Header Files\internal</Filter>
     </ClInclude>
     <ClInclude Include="..\include_internal\heatwave_api_oggcodec.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_opuscodec.h">
       <Filter>Header Files\internal</Filter>
     </ClInclude>
   </ItemGroup>

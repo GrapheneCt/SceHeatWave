@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
- * HeatWave 1.44
+ * HeatWave 1.5
  * Copyright (C) 2017 Sony Interactive Entertainment Inc.
  * All Rights Reserved.
  */
@@ -48,7 +48,7 @@ namespace sce{
 
             SceHwError clone(AudioStream **ppCloneStreamOut) const;
 
-            SceHwError init(const DataSource *pDataSource);
+            SceHwError init(const DataSource *pDataSource, bool bBasicInit);
             SceHwError release();
             bool isOpen() const;
 

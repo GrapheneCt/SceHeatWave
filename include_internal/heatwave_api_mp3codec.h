@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
-* HeatWave 1.44
+* HeatWave 1.5
 * Copyright (C) 2017 Sony Interactive Entertainment Inc.
 * All Rights Reserved.
 */
@@ -17,6 +17,8 @@
 
 #ifndef _SCE_HEATWAVE_API_MP3_CODEC_H_
 #define _SCE_HEATWAVE_API_MP3_CODEC_H_
+
+#if defined SCE_HEATWAVE_CODEC_MP3
 
 #include "heatwave_api_audiocodec.h"
 #include "heatwave_api_ringbuffer.h"
@@ -94,5 +96,7 @@ namespace sce{
 
     } /* HeatWave */
 } /* sce */
+
+#endif /* SCE_HEATWAVE_CODEC_MP3 */
 
 #endif /* _SCE_HEATWAVE_API_MP3_CODEC_H_ */

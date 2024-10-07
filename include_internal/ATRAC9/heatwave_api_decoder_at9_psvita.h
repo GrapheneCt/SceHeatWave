@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
-* HeatWave 1.44
+* HeatWave 1.5
 * Copyright (C) 2017 Sony Interactive Entertainment Inc.
 * All Rights Reserved.
 */
@@ -13,6 +13,8 @@
 
 #ifndef _SCE_HEATWAVE_API_DECODER_AT9_PSVITA_H_
 #define _SCE_HEATWAVE_API_DECODER_AT9_PSVITA_H_
+
+#if defined SCE_HEATWAVE_CODEC_AT9
 
 #include "heatwave_api_decoder_at9.h"
 #include <audiodec.h>
@@ -45,5 +47,7 @@ namespace sce{
 
     } /* HeatWave */
 } /* sce */
+
+#endif /* SCE_HEATWAVE_CODEC_AT9 */
 
 #endif /* _SCE_HEATWAVE_API_DECODER_AT9_PSVITA_H_ */

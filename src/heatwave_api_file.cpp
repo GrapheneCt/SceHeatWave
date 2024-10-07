@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
- * HeatWave 1.44
+ * HeatWave 1.5
  * Copyright (C) 2017 Sony Interactive Entertainment Inc.
  * All Rights Reserved.
  */
@@ -93,7 +93,7 @@ namespace sce{
             }
 
             stream = (FILE*)pStream;
-            return ftell(stream);
+            return (int32_t)ftell(stream);
         }
 
         uint32_t FileHandler::read(void *pPtr, uint32_t uSize, uint32_t uCount, void *pStream)

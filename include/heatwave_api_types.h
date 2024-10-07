@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
- * HeatWave 1.44
+ * HeatWave 1.5
  * Copyright (C) 2017 Sony Interactive Entertainment Inc.
  * All Rights Reserved.
  */
@@ -243,6 +243,11 @@ typedef struct SceHwInfo
 {
     SceHwSystemOutputType eOutputType; ///< The type of audio output in use.
     bool bSupportedPorts[SCE_HEATWAVE_API_OUTPUT_MAX]; ///< The currently supported audio output destinations.
+    bool bMp3Support; ///< Indicates support for MP3 codec.
+    bool bOggSupport; ///< Indicates support for OGG Vorbis codec.
+    bool bAt9Support; ///< Indicates support for ATRAC9 codec.
+    bool bHevagSupport; ///< Indicates support for HE-ADPCM (Sony HE-VAG) codec.
+    bool bOpusSupport; ///< Indicates support for OPUS codec.
 } SceHwInfo;
 
 /**
