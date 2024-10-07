@@ -13,6 +13,37 @@
 
 #define SCE_HEATWAVE_THREAD_STACK_SIZE (32*1024) /* 32kB */
 
+#ifdef SCE_HEATWAVE_PAF ///< ScePaf
+/* Forward declarations for paf::thread:: members to avoid header dependencies. */
+namespace paf{
+    namespace thread{
+
+        class RMutex
+        {
+        public:
+            RMutex(const char *name, int32_t option = 0);
+            ~RMutex();
+            void Lock();
+            void Unlock();
+        };
+
+        class Thread
+        {
+        public:
+            static constexpr int32_t Priority_Default = -1;
+            class Option;
+            Thread(int32_t priority, size_t stack_size, const char *name, const Option *option = NULL);
+            virtual ~Thread();
+            virtual void EntryFunction() = 0;
+            void Join();
+            int32_t Start();
+            void Cancel();
+        };
+
+        void Sleep(int32_t milisec);
+    }
+}
+#endif /* SCE_HEATWAVE_PAF */
 
 namespace sce{
     namespace HeatWave{
@@ -77,7 +108,7 @@ namespace sce{
             return m_threadFunc(m_userData);
         }
 
-        #if defined _WINDOWS
+        #if defined(_WINDOWS) && !defined(SCE_HEATWAVE_PAF)
         #define WINDOWS_LEAN_AND_MEAN
         #include <Windows.h>
 
@@ -165,7 +196,7 @@ namespace sce{
             Sleep(uMilliSecs);
         }
 
-        #elif defined(__psp2__)
+        #elif defined(__psp2__) && !defined(SCE_HEATWAVE_PAF)
 
         #include "kernel\threadmgr.h"
 
@@ -374,6 +405,106 @@ namespace sce{
         }
 
         #endif /* SCE_HEATWAVE_POSIX */
+
+        #ifdef SCE_HEATWAVE_PAF ///< ScePaf
+
+        class MutexPaf : public Mutex
+        {
+        public:
+            MutexPaf()
+                : Mutex(),
+                m_mutex("Mutex")
+            {
+
+            }
+
+            ~MutexPaf()
+            {
+
+            }
+
+            void lock()
+            {
+                m_mutex.Lock();
+            }
+
+            void unlock()
+            {
+                m_mutex.Unlock();
+            }
+
+        private:
+            paf::thread::RMutex m_mutex;
+        };
+
+        class ThreadPaf : public Thread
+        {
+        public:
+            ThreadPaf()
+                : Thread(),
+                m_thread(this)
+            {
+            }
+
+            ~ThreadPaf()
+            {
+            }
+
+            void startPlatformThread()
+            {
+                m_thread.Start();
+            }
+
+            void stopPlatformThread()
+            {
+                m_thread.Join(); /* Block whilst we wait for the thread to complete */
+            }
+
+        private:
+            class ThreadPafInternal : public paf::thread::Thread
+            {
+            public:
+
+                ThreadPafInternal(ThreadPaf *pData) :
+                    paf::thread::Thread(paf::thread::Thread::Priority_Default, SCE_HEATWAVE_THREAD_STACK_SIZE, "HeatWaveThread"),
+                    m_data(pData)
+                {
+                    
+                }
+
+                void EntryFunction()
+                {
+                    if (m_data != NULL)
+                    {
+                        m_data->run();
+                    }
+
+                    Cancel();
+                }
+
+            private:
+                ThreadPaf *m_data;
+            };
+
+            ThreadPafInternal m_thread;
+        };
+
+        Mutex* _sceHeatWaveCreateMutex()
+        {
+            return new MutexPaf();
+        }
+
+        Thread* _sceHeatWaveCreateThread()
+        {
+            return new ThreadPaf();
+        }
+
+        void _sceHeatWaveSleep(uint32_t uMilliSecs)
+        {
+            paf::thread::Sleep(uMilliSecs);
+        }
+
+        #endif /* SCE_HEATWAVE_PAF */
 
     } /* HeatWave */
 } /* sce */

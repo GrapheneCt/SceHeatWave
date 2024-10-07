@@ -621,49 +621,49 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)external\include;$(SolutionDir)include_internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SCE_HEATWAVE_CODEC_MP3;SCE_HEATWAVE_CODEC_OGG;SCE_HEATWAVE_CODEC_OPUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCE_HEATWAVE_PAF;SCE_HEATWAVE_CODEC_MP3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDynamic|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)external\include;$(SolutionDir)include_internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SCE_HEATWAVE_CODEC_MP3;SCE_HEATWAVE_CODEC_OGG;SCE_HEATWAVE_CODEC_OPUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCE_HEATWAVE_PAF;SCE_HEATWAVE_CODEC_MP3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PS3SNCDebug|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)external\include;$(SolutionDir)include_internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SCE_HEATWAVE_CODEC_MP3;SCE_HEATWAVE_CODEC_OGG;SCE_HEATWAVE_CODEC_OPUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCE_HEATWAVE_PAF;SCE_HEATWAVE_CODEC_MP3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PS3SNCDebugDynamic|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)external\include;$(SolutionDir)include_internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SCE_HEATWAVE_CODEC_MP3;SCE_HEATWAVE_CODEC_OGG;SCE_HEATWAVE_CODEC_OPUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCE_HEATWAVE_PAF;SCE_HEATWAVE_CODEC_MP3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PS3SNCRelease|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)external\include;$(SolutionDir)include_internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SCE_HEATWAVE_CODEC_MP3;SCE_HEATWAVE_CODEC_OGG;SCE_HEATWAVE_CODEC_OPUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCE_HEATWAVE_PAF;SCE_HEATWAVE_CODEC_MP3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PS3SNCReleaseDynamic|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)external\include;$(SolutionDir)include_internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SCE_HEATWAVE_CODEC_MP3;SCE_HEATWAVE_CODEC_OGG;SCE_HEATWAVE_CODEC_OPUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCE_HEATWAVE_PAF;SCE_HEATWAVE_CODEC_MP3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)external\include;$(SolutionDir)include_internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SCE_HEATWAVE_CODEC_MP3;SCE_HEATWAVE_CODEC_OGG;SCE_HEATWAVE_CODEC_OPUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCE_HEATWAVE_PAF;SCE_HEATWAVE_CODEC_MP3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDynamic|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)external\include;$(SolutionDir)include_internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SCE_HEATWAVE_CODEC_MP3;SCE_HEATWAVE_CODEC_OGG;SCE_HEATWAVE_CODEC_OPUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCE_HEATWAVE_PAF;SCE_HEATWAVE_CODEC_MP3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PS3SNCDebug|PSVita'">

@@ -36,6 +36,8 @@
 *           Add distance model support.
 *           Add doppler factor support.
 *           Add OGG codec support.
+*           Add OPUS codec support.
+*           Add PAF build support.
 *           
 */
 
@@ -55,7 +57,7 @@ extern "C" {
 * The format of the version number is MmmXXXXX
 * where M is the major version, mm is the minor version and XXXXX is the revision.
 */
-#define SCE_HEATWAVE_API_VERSION 0x12C42EF9
+#define SCE_HEATWAVE_API_VERSION 0x10500000
 
 /**
 * @brief Used to mark HeatWave API functions as deprecated.
