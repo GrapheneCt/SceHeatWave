@@ -38,6 +38,9 @@ namespace sce{
         #define SCE_HEATWAVE_LOCK() SystemInternal::getInstance()->lock()
         #define SCE_HEATWAVE_UNLOCK() SystemInternal::getInstance()->unlock()
 
+        #define SCE_HEATWAVE_EXT_LOCK() SystemInternal::getInstance()->lockExt()
+        #define SCE_HEATWAVE_EXT_UNLOCK() SystemInternal::getInstance()->unlockExt()
+
         class SystemInternal : public MemoryHandler
         {
         public:
@@ -62,6 +65,9 @@ namespace sce{
 
             void lock();
             void unlock();
+
+            void lockExt();
+            void unlockExt();
 
             bool isUpdateThreadRunning();
 
