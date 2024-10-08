@@ -29,8 +29,6 @@ namespace sce{
 
         static SystemInternal *s_globalSystemHandle = NULL; /* One global System for now (singleton), can add support for multiple systems later if needed */
 
-        static bool s_extLock = false; /* Indicates that system has been locked externally from public API */
-
         /**
         * @brief update the system (clean up any resources that are finished), trigger streaming of audio data
         * This runs on an internal thread
@@ -362,32 +360,12 @@ namespace sce{
 
         void SystemInternal::lock()
         {
-            if (s_extLock)
-            {
-                return;
-            }
             m_globalMutex->lock();
         }
 
         void SystemInternal::unlock()
         {
-            if (s_extLock)
-            {
-                return;
-            }
             m_globalMutex->unlock();
-        }
-
-        void SystemInternal::lockExt()
-        {
-            s_extLock = true;
-            m_globalMutex->lock();
-        }
-
-        void SystemInternal::unlockExt()
-        {
-            m_globalMutex->unlock();
-            s_extLock = false;
         }
 
         /**
