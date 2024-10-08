@@ -25,6 +25,8 @@ namespace paf{
             ~RMutex();
             void Lock();
             void Unlock();
+        private:
+            int8_t data[64];
         };
 
         class Thread
@@ -38,6 +40,8 @@ namespace paf{
             void Join();
             int32_t Start();
             void Cancel();
+        private:
+            int8_t data[16];
         };
 
         void Sleep(int32_t milisec);
@@ -413,9 +417,9 @@ namespace sce{
         public:
             MutexPaf()
                 : Mutex(),
-                m_mutex("Mutex")
+                m_mutex(NULL)
             {
-
+                m_mutex = new paf::thread::RMutex("Mutex");
             }
 
             ~MutexPaf()
@@ -425,39 +429,41 @@ namespace sce{
 
             void lock()
             {
-                m_mutex.Lock();
+                m_mutex->Lock();
             }
 
             void unlock()
             {
-                m_mutex.Unlock();
+                m_mutex->Unlock();
             }
 
         private:
-            paf::thread::RMutex m_mutex;
+            paf::thread::RMutex *m_mutex;
         };
-
+#include <stdio.h>
         class ThreadPaf : public Thread
         {
         public:
             ThreadPaf()
                 : Thread(),
-                m_thread(this)
+                m_thread(NULL)
             {
+                m_thread = new ThreadPafInternal(this);
             }
 
             ~ThreadPaf()
             {
+                delete m_thread;
             }
 
             void startPlatformThread()
             {
-                m_thread.Start();
+                m_thread->Start();
             }
 
             void stopPlatformThread()
             {
-                m_thread.Join(); /* Block whilst we wait for the thread to complete */
+                m_thread->Join(); /* Block whilst we wait for the thread to complete */
             }
 
         private:
@@ -486,7 +492,7 @@ namespace sce{
                 ThreadPaf *m_data;
             };
 
-            ThreadPafInternal m_thread;
+            ThreadPafInternal *m_thread;
         };
 
         Mutex* _sceHeatWaveCreateMutex()

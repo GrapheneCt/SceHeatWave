@@ -993,3 +993,17 @@ SceHwError sceHeatWaveGetDistanceModel(int32_t *pnModel)
 
     return SCE_HEATWAVE_API_OK;
 }
+
+SceHwError sceHeatWaveLock()
+{
+    SCE_HEATWAVE_LOCK();
+
+    return SCE_HEATWAVE_API_OK;
+}
+
+SceHwError sceHeatWaveUnlock()
+{
+    SCE_HEATWAVE_UNLOCK();
+
+    return SCE_HEATWAVE_API_OK;
+}

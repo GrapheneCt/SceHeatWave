@@ -1103,6 +1103,20 @@ SCE_HEATWAVE_FUNC SceHwError sceHeatWaveGetDistanceModel(int32_t *pnModel);
 */
 SCE_HEATWAVE_FUNC SceHwError sceHeatWaveGetDopplerFactor(float32_t *pfDopplerFactor);
 
+/**
+* @brief    Lock all internal system processing
+*
+* @return   See <c>SCE_HEATWAVE_API_OK</c> and other return codes.
+*/
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveLock();
+
+/**
+* @brief    Unlock all internal system processing
+*
+* @return   See <c>SCE_HEATWAVE_API_OK</c> and other return codes.
+*/
+SCE_HEATWAVE_FUNC SceHwError sceHeatWaveUnlock();
+
 #if defined(_LANGUAGE_C_PLUS_PLUS)||defined(__cplusplus)||defined(c_plusplus)
 }
 #endif /* defined(_LANGUAGE_C_PLUS_PLUS)||defined(__cplusplus)||defined(c_plusplus) */
