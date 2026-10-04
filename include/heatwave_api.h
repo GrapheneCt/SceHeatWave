@@ -37,7 +37,7 @@
 *           Add doppler factor support.
 *           Add OGG codec support.
 *           Add OPUS codec support.
-*           Add PAF build support.
+*           Add PAF build support (PSVita only).
 *           
 */
 

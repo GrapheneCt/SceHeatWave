@@ -11,6 +11,13 @@
 #include "heatwave_api_synthchannelsurroundparams.h"
 #include "heatwave_api.h"
 
+#ifdef SCE_HEATWAVE_PAF
+extern "C" {
+    extern float sce_paf_cosf(float _Left);
+    extern float sce_paf_sinf(float _Left);
+}
+#endif
+
 namespace sce{
     namespace HeatWave{
 
@@ -595,8 +602,13 @@ namespace sce{
                 }
 
                 /* equal-power panning */
+#ifdef SCE_HEATWAVE_PAF
+                pVolumeMatrixOut[Speaker_FL] = sce_paf_cosf((float)(SCE_HEATWAVE_API_PI / 4.0f) * (1.0f + position.fX));
+                pVolumeMatrixOut[Speaker_FR] = sce_paf_sinf((float)(SCE_HEATWAVE_API_PI / 4.0f) * (1.0f + position.fX));
+#else
                 pVolumeMatrixOut[Speaker_FL] = cosf((float)(SCE_HEATWAVE_API_PI / 4.0f) * (1.0f + position.fX));
                 pVolumeMatrixOut[Speaker_FR] = sinf((float)(SCE_HEATWAVE_API_PI / 4.0f) * (1.0f + position.fX));
+#endif
 
                 *pDopplerShiftOut = dopplerShift;
                 *pLowPassOut = coneLowpass;
@@ -964,8 +976,13 @@ namespace sce{
             }
 
             /* Constant power pan between the 2 speakers */
+#ifdef SCE_HEATWAVE_PAF
+            afSpeakerGains[eSpeaker1] = (float32_t)sce_paf_cosf(fInterpolate * SCE_HEATWAVE_API_HALF_PI);
+            afSpeakerGains[eSpeaker2] = (float32_t)sce_paf_sinf(fInterpolate * SCE_HEATWAVE_API_HALF_PI);
+#else
             afSpeakerGains[eSpeaker1] = (float32_t)cos(fInterpolate * SCE_HEATWAVE_API_HALF_PI);
             afSpeakerGains[eSpeaker2] = (float32_t)sin(fInterpolate * SCE_HEATWAVE_API_HALF_PI);
+#endif
 
             /* convert from 7.1 to the destination layout */
             nRet = _performFoldown(afSpeakerGains, pfVolumeMatrixOut, uNumVolumes);

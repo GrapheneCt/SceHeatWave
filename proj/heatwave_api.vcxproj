@@ -595,11 +595,13 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDynamic|PSVita'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)external\include;$(SolutionDir)include_internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCE_HEATWAVE_CODEC_MP3;SCE_HEATWAVE_PAF;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OptimizationLevel>Level3</OptimizationLevel>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SCE_PSP2_SDK_DIR)\target\lib;$(ProjectDir)..\external\lib\$(Platform)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>-lvorbisfile;-lvorbis;-logg;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SCE_PSP2_SDK_DIR)\target\lib;$(ProjectDir)..\external\lib\$(Platform);$(SCE_PSP2_SDK_DIR)\target\lib\vdsuite</AdditionalLibraryDirectories>
+      <AdditionalDependencies>-lvorbisfile;-lvorbis;-logg;-lSceKernel_stub;$(SolutionDir)external\lib\PSVita\libScePafStdcNoPrefix_stub.a;-lsnc;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>--no-standard-libraries %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PSVita'">

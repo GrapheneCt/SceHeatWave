@@ -13,41 +13,19 @@
 
 #define SCE_HEATWAVE_THREAD_STACK_SIZE (32*1024) /* 32kB */
 
-#ifdef SCE_HEATWAVE_PAF ///< ScePaf
-/* Forward declarations for paf::thread:: members to avoid header dependencies. */
-namespace paf{
-    namespace thread{
-
-        class RMutex
-        {
-        public:
-            RMutex(const char *name, int32_t option = 0);
-            ~RMutex();
-            void Lock();
-            void Unlock();
-        private:
-            int8_t data[64];
-        };
-
-        class Thread
-        {
-        public:
-            static constexpr int32_t Priority_Default = -1;
-            class Option;
-            Thread(int32_t priority, size_t stack_size, const char *name, const Option *option = NULL);
-            virtual ~Thread();
-            virtual void EntryFunction() = 0;
-            void Join();
-            int32_t Start();
-            void Cancel();
-        private:
-            int8_t data[16];
-        };
-
-        void Sleep(int32_t milisec);
-    }
-}
-#endif /* SCE_HEATWAVE_PAF */
+#ifdef SCE_HEATWAVE_PAF
+#ifndef SCE_HEATWAVE_DYNAMIC
+#error Option SCE_HEATWAVE_PAF does not support static build!
+#endif
+#ifdef __psp2__
+/* Additional requirement for SCE_HEATWAVE_PAF option on PSP2:
+ * 1. Add --no-standard-libraries parameter to the Project Properties->Linker->Command Line
+ * 2. Add $(SolutionDir)external\lib\PSVita\libScePafStdcNoPrefix_stub.a line to the Project Properties->Linker->General->Additional Dependencies
+ */
+#else
+#error Option SCE_HEATWAVE_PAF is not supported for the selected platform!
+#endif
+#endif
 
 namespace sce{
     namespace HeatWave{
@@ -112,7 +90,7 @@ namespace sce{
             return m_threadFunc(m_userData);
         }
 
-        #if defined(_WINDOWS) && !defined(SCE_HEATWAVE_PAF)
+        #if defined(_WINDOWS)
         #define WINDOWS_LEAN_AND_MEAN
         #include <Windows.h>
 
@@ -200,7 +178,7 @@ namespace sce{
             Sleep(uMilliSecs);
         }
 
-        #elif defined(__psp2__) && !defined(SCE_HEATWAVE_PAF)
+        #elif defined(__psp2__)
 
         #include "kernel\threadmgr.h"
 
@@ -410,107 +388,110 @@ namespace sce{
 
         #endif /* SCE_HEATWAVE_POSIX */
 
-        #ifdef SCE_HEATWAVE_PAF ///< ScePaf
-
-        class MutexPaf : public Mutex
-        {
-        public:
-            MutexPaf()
-                : Mutex(),
-                m_mutex(NULL)
-            {
-                m_mutex = new paf::thread::RMutex("Mutex");
-            }
-
-            ~MutexPaf()
-            {
-
-            }
-
-            void lock()
-            {
-                m_mutex->Lock();
-            }
-
-            void unlock()
-            {
-                m_mutex->Unlock();
-            }
-
-        private:
-            paf::thread::RMutex *m_mutex;
-        };
-#include <stdio.h>
-        class ThreadPaf : public Thread
-        {
-        public:
-            ThreadPaf()
-                : Thread(),
-                m_thread(NULL)
-            {
-                m_thread = new ThreadPafInternal(this);
-            }
-
-            ~ThreadPaf()
-            {
-                delete m_thread;
-            }
-
-            void startPlatformThread()
-            {
-                m_thread->Start();
-            }
-
-            void stopPlatformThread()
-            {
-                m_thread->Join(); /* Block whilst we wait for the thread to complete */
-            }
-
-        private:
-            class ThreadPafInternal : public paf::thread::Thread
-            {
-            public:
-
-                ThreadPafInternal(ThreadPaf *pData) :
-                    paf::thread::Thread(paf::thread::Thread::Priority_Default, SCE_HEATWAVE_THREAD_STACK_SIZE, "HeatWaveThread"),
-                    m_data(pData)
-                {
-                    
-                }
-
-                void EntryFunction()
-                {
-                    if (m_data != NULL)
-                    {
-                        m_data->run();
-                    }
-
-                    Cancel();
-                }
-
-            private:
-                ThreadPaf *m_data;
-            };
-
-            ThreadPafInternal *m_thread;
-        };
-
-        Mutex* _sceHeatWaveCreateMutex()
-        {
-            return new MutexPaf();
-        }
-
-        Thread* _sceHeatWaveCreateThread()
-        {
-            return new ThreadPaf();
-        }
-
-        void _sceHeatWaveSleep(uint32_t uMilliSecs)
-        {
-            paf::thread::Sleep(uMilliSecs);
-        }
-
-        #endif /* SCE_HEATWAVE_PAF */
-
     } /* HeatWave */
 } /* sce */
+
+#ifdef SCE_HEATWAVE_PAF
+
+extern "C" {
+
+    extern int __cxa_atexit(void(*func)(void), void *arg, void *dso_handle);
+    extern float sinf(float _Left);
+    extern float cosf(float _Left);
+
+    int _sceLdTlsRegisterModuleInfo()
+    {
+        return 0;
+    }
+
+    int _sceLdTlsUnregisterModuleInfo()
+    {
+        return 0;
+    }
+
+    int __at_quick_exit(void(*func)(void), void *arg, void *dso_handle)
+    {
+        return __cxa_atexit(func, 0, 0);
+    }
+
+    void _ZSt14_Xlength_errorPKc(const char *s)
+    {
+        //sceClibPrintf("_Xlength_error: %s", s);
+        abort();
+    }
+
+    short _FDtest(float *p)
+    {
+        union
+        {
+            float f;
+            uint32_t u;
+        } v = { *p };
+
+        uint32_t e = v.u & 0x7F800000u;
+        uint32_t m = v.u & 0x007FFFFFu;
+
+        if (e == 0x7F800000u)
+        {
+            return m ? 2 : 1;
+        }
+
+        if (e == 0)
+        {
+            return m ? -2 : 0;
+        }
+
+        return -1;
+    }
+
+#include <arm_neon.h>
+
+    /*float sqrtf(float x)
+    {
+        float32x2_t d0 = vdup_n_f32(x);
+        float32x2_t d1;
+        float32x2_t d2;
+        float32x2_t d3;
+
+        // Fast inverse-square-root approximation
+        d1 = d0;
+        d0 = vrsqrte_f32(d0);
+
+        d2 = vmul_f32(d0, d1);
+        d3 = vrsqrts_f32(d2, d0);
+        d0 = vmul_f32(d0, d3);
+
+        d2 = vmul_f32(d0, d1);
+        d3 = vrsqrts_f32(d2, d0);
+        d0 = vmul_f32(d0, d3);
+
+        // Fast reciprocal approximation
+        d1 = vrecpe_f32(d0);
+        d2 = vrecps_f32(d1, d0);
+        d1 = vmul_f32(d1, d2);
+
+        d2 = vrecps_f32(d1, d0);
+        d0 = vmul_f32(d1, d2);
+
+
+        return vget_lane_f32(d0, 0);
+    }*/
+
+    float sqrtf(float x)
+    {
+        __asm("vsqrt.f32 s0, s0");
+        return x;
+    }
+
+    float sce_paf_sinf(float _Left)
+    {
+        return sinf(_Left);
+    }
+
+    float sce_paf_cosf(float _Left)
+    {
+        return cosf(_Left);
+    }
+}
+
+#endif /* SCE_HEATWAVE_PAF */
