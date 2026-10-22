@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
- * HeatWave 1.5
+ * HeatWave 1.6
  * Copyright (C) 2017 Sony Interactive Entertainment Inc.
  * All Rights Reserved.
  */
@@ -11,7 +11,11 @@
   #include <pthread.h>
 #endif
 
+#if defined(SCE_HEATWAVE_CODEC_AT3) || defined(SCE_HEATWAVE_CODEC_MP3_PSVITA_SOFT)
+#define SCE_HEATWAVE_THREAD_STACK_SIZE (64*1024) /* 64kB */
+#else
 #define SCE_HEATWAVE_THREAD_STACK_SIZE (32*1024) /* 32kB */
+#endif
 
 #ifdef SCE_HEATWAVE_PAF
 #ifndef SCE_HEATWAVE_DYNAMIC
@@ -20,8 +24,10 @@
 #ifdef __psp2__
 /* Additional requirement for SCE_HEATWAVE_PAF option on PSP2:
  * 1. Add --no-standard-libraries parameter to the Project Properties->Linker->Command Line
- * 2. Add $(SolutionDir)external\lib\PSVita\libScePafStdcNoPrefix_stub.a line to the Project Properties->Linker->General->Additional Dependencies
  */
+#pragma comment(lib, "libSceKernel_stub.a")
+#pragma comment(lib, "_libScePafStdc_stub.a")
+#pragma comment(lib, "libsnc.a")
 #else
 #error Option SCE_HEATWAVE_PAF is not supported for the selected platform!
 #endif

@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
-* HeatWave 1.5
+* HeatWave 1.6
 * Copyright (C) 2017 Sony Interactive Entertainment Inc.
 * All Rights Reserved.
 */

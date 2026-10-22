@@ -163,6 +163,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\ATRAC3\heatwave_api_decoder_at3.cpp" />
+    <ClCompile Include="..\src\ATRAC3\heatwave_api_decoder_at3_psvita.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDynamic|PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDynamic|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDynamic|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\src\ATRAC9\heatwave_api_decoder_at9.cpp" />
     <ClCompile Include="..\src\ATRAC9\heatwave_api_decoder_at9_psvita.cpp">
       <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
@@ -172,6 +178,7 @@
       <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\src\heatwave_api_adpcmcodec.cpp" />
+    <ClCompile Include="..\src\heatwave_api_at3codec.cpp" />
     <ClCompile Include="..\src\heatwave_api_at9codec.cpp" />
     <ClCompile Include="..\src\heatwave_api_audiocodec.cpp" />
     <ClCompile Include="..\src\heatwave_api_audiofilestream.cpp" />
@@ -320,6 +327,12 @@
     <ClInclude Include="..\include\heatwave_api.h" />
     <ClInclude Include="..\include\heatwave_api_errors.h" />
     <ClInclude Include="..\include\heatwave_api_types.h" />
+    <ClInclude Include="..\include_internal\ATRAC3\heatwave_api_decoder_at3.h" />
+    <ClInclude Include="..\include_internal\ATRAC3\heatwave_api_decoder_at3_psvita.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDynamic|PS3'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDynamic|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDynamic|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="..\include_internal\ATRAC9\heatwave_api_decoder_at9.h" />
     <ClInclude Include="..\include_internal\ATRAC9\heatwave_api_decoder_at9_psvita.h">
       <ExcludedFromBuild Condition="'$(Platform)'=='ORBIS'">true</ExcludedFromBuild>
@@ -329,6 +342,7 @@
       <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="..\include_internal\heatwave_api_adpcmcodec.h" />
+    <ClInclude Include="..\include_internal\heatwave_api_at3codec.h" />
     <ClInclude Include="..\include_internal\heatwave_api_at9codec.h" />
     <ClInclude Include="..\include_internal\heatwave_api_audiocodec.h" />
     <ClInclude Include="..\include_internal\heatwave_api_audiofilestream.h" />
@@ -594,13 +608,13 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDynamic|PSVita'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)external\include;$(SolutionDir)include_internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SCE_HEATWAVE_CODEC_MP3;SCE_HEATWAVE_PAF;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)external\include;$(SolutionDir)include_internal;$(SCE_PSP2_SDK_DIR)\target\include\vdsuite\user;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SCE_HEATWAVE_CODEC_MP3;SCE_HEATWAVE_CODEC_MP3_PSVITA_SOFT;SCE_HEATWAVE_CODEC_WAV;SCE_HEATWAVE_PAF;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <OptimizationLevel>Level3</OptimizationLevel>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SCE_PSP2_SDK_DIR)\target\lib;$(ProjectDir)..\external\lib\$(Platform);$(SCE_PSP2_SDK_DIR)\target\lib\vdsuite</AdditionalLibraryDirectories>
-      <AdditionalDependencies>-lvorbisfile;-lvorbis;-logg;-lSceKernel_stub;$(SolutionDir)external\lib\PSVita\libScePafStdcNoPrefix_stub.a;-lsnc;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>-lvorbisfile;-lvorbis;-logg;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>--no-standard-libraries %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -665,7 +679,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDynamic|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)external\include;$(SolutionDir)include_internal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SCE_HEATWAVE_PAF;SCE_HEATWAVE_CODEC_MP3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCE_HEATWAVE_CODEC_MP3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PS3SNCDebug|PSVita'">

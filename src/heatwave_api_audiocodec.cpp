@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
-* HeatWave 1.5
+* HeatWave 1.6
 * Copyright (C) 2017 Sony Interactive Entertainment Inc.
 * All Rights Reserved.
 */
@@ -9,6 +9,7 @@
 #include "heatwave_api_errors.h"
 #include "heatwave_api_wavcodec.h"
 #include "heatwave_api_mp3codec.h"
+#include "heatwave_api_at3codec.h"
 #include "heatwave_api_at9codec.h"
 #include "heatwave_api_adpcmcodec.h"
 #include "heatwave_api_oggcodec.h"
@@ -43,9 +44,18 @@ namespace sce{
                 {
                     stream = new At9Codec(pDataSource);
                 }
-                else
+                else 
 #endif
 #endif /* SCE_HEATWAVE_CODEC_AT9 */
+#if defined SCE_HEATWAVE_CODEC_AT3
+#if defined __psp2__
+                if (SCE_HEATWAVE_API_SUCCEEDED(At3Codec::isAt3WaveFormat(pDataSource))) /* ATRAC3 */
+                {
+                    stream = new At3Codec(pDataSource);
+                }
+                else
+#endif
+#endif /* SCE_HEATWAVE_CODEC_AT3 */
                 {
                     stream = new WavCodec(pDataSource);
                 }
@@ -68,6 +78,14 @@ namespace sce{
                 stream = new OpusCodec(pDataSource);
             }
 #endif /* SCE_HEATWAVE_CODEC_OPUS */
+#if defined SCE_HEATWAVE_CODEC_AT3
+#if defined __psp2__
+            else if (SCE_HEATWAVE_API_SUCCEEDED(At3Codec::isAt3OmaFormat(pDataSource))) /* ATRAC3 */
+            {
+                stream = new At3Codec(pDataSource);
+            }
+#endif
+#endif /* SCE_HEATWAVE_CODEC_AT3 */
 #if defined SCE_HEATWAVE_CODEC_HEVAG
 #if defined __psp2__
             else if (_sceHeatWaveIsAdpcmFormat(pDataSource)) /* ADPCM */
@@ -133,6 +151,14 @@ namespace sce{
                 res = SCE_HEATWAVE_API_OK;
             }
 #endif /* SCE_HEATWAVE_CODEC_OPUS */
+#if defined SCE_HEATWAVE_CODEC_AT3
+#if defined __psp2__
+            else if (SCE_HEATWAVE_API_SUCCEEDED(At3Codec::isAt3OmaFormat(pDataSource))) /* ATRAC3 */
+            {
+                res = SCE_HEATWAVE_API_OK;
+            }
+#endif
+#endif /* SCE_HEATWAVE_CODEC_AT3 */
 #if defined SCE_HEATWAVE_CODEC_HEVAG
 #if defined __psp2__
             else if (_sceHeatWaveIsAdpcmFormat(pDataSource)) /* ADPCM */

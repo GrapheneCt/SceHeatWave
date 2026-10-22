@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
-* HeatWave 1.5
+* HeatWave 1.6
 * Copyright (C) 2017 Sony Interactive Entertainment Inc.
 * All Rights Reserved.
 */
@@ -29,7 +29,7 @@ namespace sce{
         {
         public:
             At9Codec(DataSource *pSource);
-			virtual ~At9Codec();
+            virtual ~At9Codec();
 
         protected:
             static const uint32_t kuDataBlockSize = 4 * 1024;

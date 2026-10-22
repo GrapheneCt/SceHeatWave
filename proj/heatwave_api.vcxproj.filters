@@ -54,6 +54,12 @@
     <Filter Include="Source Files\ATRAC9">
       <UniqueIdentifier>{8b53871a-4613-48be-a65a-4b4872feb65a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ATRAC3">
+      <UniqueIdentifier>{a4065acd-01a8-4046-9131-be7cb4f1ad79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\internal\ATRAC3">
+      <UniqueIdentifier>{add50ae8-7dd5-48d9-92d1-dc859d0efa5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\heatwave_api_audiocodec.cpp">
@@ -203,6 +209,15 @@
     <ClCompile Include="..\src\heatwave_api_opuscodec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\heatwave_api_at3codec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ATRAC3\heatwave_api_decoder_at3.cpp">
+      <Filter>Source Files\ATRAC3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ATRAC3\heatwave_api_decoder_at3_psvita.cpp">
+      <Filter>Source Files\ATRAC3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\heatwave_api.h">
@@ -344,6 +359,15 @@
       <Filter>Header Files\internal</Filter>
     </ClInclude>
     <ClInclude Include="..\include_internal\heatwave_api_opuscodec.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\ATRAC3\heatwave_api_decoder_at3.h">
+      <Filter>Header Files\internal\ATRAC3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\ATRAC3\heatwave_api_decoder_at3_psvita.h">
+      <Filter>Header Files\internal\ATRAC3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include_internal\heatwave_api_at3codec.h">
       <Filter>Header Files\internal</Filter>
     </ClInclude>
   </ItemGroup>

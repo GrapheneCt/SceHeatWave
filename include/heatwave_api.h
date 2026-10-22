@@ -1,5 +1,5 @@
 ﻿/* SIE CONFIDENTIAL
- * HeatWave 1.5
+ * HeatWave 1.6
  * Copyright (C) 2017 Sony Interactive Entertainment Inc.
  * All Rights Reserved.
  */
@@ -38,6 +38,7 @@
 *           Add OGG codec support.
 *           Add OPUS codec support.
 *           Add PAF build support (PSVita only).
+*   1.6     Add ATRAC3 codec support (PSVita only).
 *           
 */
 
